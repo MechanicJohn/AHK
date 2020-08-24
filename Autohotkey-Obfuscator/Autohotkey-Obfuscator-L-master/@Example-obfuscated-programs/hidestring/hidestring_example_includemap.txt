@@ -1,0 +1,1 @@
+hidestring_example.ahk

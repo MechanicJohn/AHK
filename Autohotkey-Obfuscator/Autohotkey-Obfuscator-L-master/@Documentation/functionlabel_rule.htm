@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Obfuscator rules - Functions and Labels</title>
+<meta name="Description" content="This program has the ability to obfuscate all usage of functions in your Autohotkey program and to make multiple function calls look completely different.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- ;Put class in body -->
+<!-- <body class="language-autohotkey"> -->
+<!-- COMMAND IN BROWN -->
+<!-- <pre class="language-"><font color="brown">OBFUSCATOR</font></pre> -->
+<!-- ;EXAMPLE IN BLUE -->
+<!-- </br><pre class="language-"><font color="blue">EXAMPLE</font></pre> -->
+<!-- ;LONG EXAMPLE IN PURPLE + CODE -->
+<!-- <pre><font color="purple">TEXT <code>CODE</code></font></pre> -->
+<!-- ;CODE -->
+<!-- <pre><code>CODE</code></pre> -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<!-- ***************************** -->
+<!-- JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<font color="red"><b>Important rules for structuring/naming of functions and labels</b><br/></font>
+
+<h2><a name="prefuncs"></a>Prepare function sections</h2>
+<div>
+In order to correctly find and parse off functions, the Obfuscator needs a few simple format rules to be followed:
+<ul>
+<li><b>The function definition must start in column 1.</b><br/>
+<li><b>The ending brace <code>"}"</code> for the function and only this one must be in column 1</b><br/></li>
+There cannot be any other <code>"}"</code> in column 1 within the function. You can still use the ending curly brace within the function for instance to terminate the truth block of an if, but that curly brace would always have to be indented, it can not be in column 1. <br/>
+<li><b>Function names can only be made out of letters, numbers, and the underscore.</b> <br/></li></ul>
+I did not code the program to recognize more characters for function names because I never use them.
+</div>
+
+<h2><a name="prelabels"></a>Prepare Label Sections</h2>
+<div>
+A few simple format rules need to be followed in order for the Obfuscator to find and parse off label sections:
+<ul>
+<li><b>The label section header followed by <code>":"</code> has to start in column 1.</b><br/>
+<li><b>The ending <code>RETURN</code> for the label section and only it  has to start in column 1.</b><br/></li>
+The <code>RETURN</code> statement can still be used within the section for instance as part of an if statement, but it would always have to be indented.  <li><b>Label names can made out of only letters, numbers, and the underscore</b>, similar to function names.</li></ul>
+</div>
+
+<h2><a name="prelabels"></a>Functions and Label Names</h2>
+<div>
+<ul><li>
+<b>DO NOT GIVE THE SAME NAME to one function and one label</b></li>
+as the Obfuscator could assign the wrong obfuscated name<br/>
+<li><b>DO NOT ASSIGN A STRING WITH THE SAME NAME AS ONE OF YOUR FUNCTION/LABEL</b><br/></li>
+as the Obfuscator will replace the string with the obfuscated name of the function/label. This is very useful when this is intended.
+<br/>For example in this call <code>"FunctionName"</code> will be properly replaced.
+<pre><code>SetTimer, % "FunctionName", 2000</code></pre>
+But if not intended the replacement can break some of your code.<br/>
+Typical example is a function which as the same name of the function it calls via a <code>DllCall()</code>.
+<pre><code>FunctionName() {<br/>
+DllCall("FunctionName",...
+}</code></pre>
+Will make an invalid replacement of the <code>"FunctionName"</code> in the <code>DllCall()</code></ul>
+</div>
+
+<h2><a name="funcwithoutparanth"></a>Function names used without "()"</h2>
+<div>
+When you must use the name of a function without calling it or using the <code>()</code>, you should <b>ALWAYS USE THE "FUNCTION NAME" IN QUOTES</b>. 
+<br>It happens for exemple with use of <code>A_ThisFunc</code> or inside <code>Menu Items functions</code>
+<br/>Ex: <code>if (A_ThisFunc="FunctionName")</code> 
+<br/>Ex: <code>Menu, MyMenu, Add, MenuItem, % "FunctionName"</code></code> 
+<br/><font color="red">Otherwise the function name won't be obfuscated and an error will occur</font>. 
+<br/><b>This is not the same with labels, which can be used without quotes. </b>
+<br/>The reason is that some function names sometimes have the same name as <span class="highlight">AHK system commands</span> and therefore that would lead to invalid replacements.
+</div>
+
+<h2><a name="nestedlabels"></a>Nested Label Headers Inside Other Label Sections and Functions</h2>
+<div>
+<span class="highlight">Labels that are nested</span> inside other label sections are OK, no special handling is necessary. They do not need an ending <code>RETURN</code> of their own if they are nested. There should be only one final <code>RETURN</code> for them all in column 1. 
+<br/><span class="highlight">Label sections within functions</span> are also OK, but in that case no need to worry about special positioning of the labels header or <code>RETURN</code> statements.
+</div>
+
+<h2><a name="guilabelstate"></a>Special Rule For Labels Referred to in a GUI+LabelPrefix Statement</h2>
+<div>
+<a href="guicontrols.htm#guilabel" target="blank">See here</a>
+</div>
+
+</div>
+
+
+<div id="rightcol" style="width:200px;float:left">
+</div>
+
+</div>
+
+</body>
+</html>

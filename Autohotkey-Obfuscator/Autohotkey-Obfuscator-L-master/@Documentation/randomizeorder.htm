@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Scramble the Order of Functions in Your Obfuscated Autohotkey Scripts</title>
+<meta name="Description" content="This allows you to create a layered scrambled Sandwich out of the functions and label sections of your obfuscated Autohotkey program.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>Scramble the Order of your whole code</h1>
+<div>
+You can have the order of your whole code (functions, labels, classes, hotkeys, context conditions etc.) scrambled by checking a box on the obfuscate run window.
+</br>You can either let the program <span class="highlight">scramble all your code</span> or create a <span class="highlight">Custom Layered Scrambled Sandwich</span>.
+</div>
+
+<h2>Let the program scramble the order itself and keep some parts together</h2>
+<div>
+If you let the program do that you can still ask it to keep parts of code together by using these commands:
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $START_BLOCK:</font></pre>
+&
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $END_BLOCK:</font></pre>
+</div>
+
+<h2>Create a Custom Layered Scrambled Sandwich</h2>
+<div>
+You can create a custom scrambling palette that will randomize the order of your functions and label sections in your source code according to a format set by you. You specify individual layers of scrambling with each layer listing classes to scramble all together. For each layer you use the <span class="highlight">DUMP_CLASSCODE</span> Obfuscator command comment and you can put them anywhere in your script. 
+
+</br><font color="green">NEW</font>
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DUMP_CLASSCODE: (list of class names)</font></pre>
+<font color="red">Previous [modified DigiDon]</font>
+<pre class="language-"><font color="red">;$OBFUSCATOR: $DUMP_FUNCandLABEL_CODE: (list of) fandl:(class name)</font></pre>
+</br>You use a series of these statements to specify the individual layers you want: 
+
+<pre><code>;$OBFUSCATOR: $DUMP_CLASSCODE: configsyspages, buythisprogram 
+</br>;$OBFUSCATOR: $DUMP_CLASSCODE: <b>unclassed</b>, initprogram, onClipboardChange, expressmenu
+</br>;$OBFUSCATOR: $DUMP_CLASSCODE: helpsyspages</code></pre>
+</div>
+
+
+<div>
+<br>You can use as many of these statements as you want, there is no limit. 
+Each one of these should be followed by a class name and <b>DO NOT FORGET THE SPECIAL TAG 'UNCLASSED'</b> which stands for all the functions or label sections which you have not made part of a class. 
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DUMP_CLASSCODE: unclassed</font></pre>
+Each class can be a <a href="addtoclass.htm">'secured' class or an unsecured class</a>. If you use this function and the obfuscated program fails to compile correctly or starts to malfunction afterwards, it will usually mean that you have not specified in these statements all the obfuscation classes that you have defined in your program.
+</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

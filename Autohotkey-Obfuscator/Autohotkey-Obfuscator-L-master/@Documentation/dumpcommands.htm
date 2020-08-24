@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>For Autohotkey Dynamic Object Name Obfuscation, Use the DUMP Commands</title>
+<meta name="Description" content="The obfuscator DUMP commands will drop scrambled and secured assignment statements into your Autohotkey script that will 'wire up' the Dynamic Obfuscation.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<!-- !!! TO BE IMPROVED !!!! -->
+<iframe style="border-width:0px;float:left" src="iFrames/topnote-toimprove.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/></iframe>
+
+<h1>For Autohotkey Dynamic Object Name Obfuscation, Use the DUMP Commands</h1>
+<h2><a name="dumpman"></a>DUMP Commands Are Mandatory When Dynamic Obfuscation is Used</h2>
+<div>
+Because Dynamic Obfuscation builds object names out of fragments represented by <code>"%"s</code>, these fragments must be initialized somewhere in your program. 
+</br>The <span class="highlight">DUMP</span> command comments allow you to do that at places of your choosing in your source code.
+</br>
+</br>When using Dynamic Obfuscation you must always <span class="highlight">DUMP common object fragments</span> and <span class="highlight">DUMP fragments for object types</span>. If you create <span class="highlight">secure classes</span>, you must use the <span class="highlight">DUMP</span> commands for those and you can also use the <span class="highlight">DUMP Poisoned</span> command for those. If you want to change where your function calls go to, use the <span class="highlight">DUMP Rewire Function</span>.
+</br>
+</br>The <span class="highlight">DUMP</span> command comments will drop a bunch of assignment statements into your code. These statements will initialize the values of object name fragments that will be used to create and secure object names.
+
+<br><br>The assignment statements themselves will have object name fragments inserted into them which will be represented by the presence of <code>"%"s</code>. Both sides of the assignment statement will have these so that it will be difficult for the hacker to find the place where an object fragment used in the program is initialized.
+
+<br><br>The fragments used in the assignment statements can be <span class="highlight">common security fragments</span> or they can be fragments associated with a <span class="highlight">secure classe</span>. Since <span class="highlight">common security fragments</span> are used frequently even by <span class="highlight">secure classes</span> for some things, they must be DUMPed before most other types of <span class="highlight">DUMPS</span> are done.
+
+<br><br>If you choose to <span class="highlight">randomize the order of functions and label sections</span> on the obfuscation run screen, then the order of individual statements within the <span class="highlight">DUMPS</span> will also be scrambled, making it more difficult to identify individual assignments.
+
+<br><br>The <span class="highlight">DUMPS</span> commands will put comment headers into the code to identify individual object initializations which is useful for debugging. To have them show, uncheck the <span class="highlight">'strip out all comments'</span> box on the obfuscation run screen.
+</div>
+
+<h2><a name="dumpman"></a>Insert mandatory DUMP Commands for Dynamic Obfuscation</h2>
+<div>
+See <a href="mandatdyndumps.htm">Mandatory DUMPS COMMANDS for Dynamic Obfuscation</a> for a sample of code to insert so that mandatory dumps will be made.
+</div>
+
+<h2><a name="dumpman"></a>DUMP Commands for Secure Classes</h2>
+<div>
+If you've created <span class="highlight">secure classes</span>, you will need to use <a href="addtoclass.htm#initclassfrags">DUMPS for Secure Classes</a> as well!
+</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

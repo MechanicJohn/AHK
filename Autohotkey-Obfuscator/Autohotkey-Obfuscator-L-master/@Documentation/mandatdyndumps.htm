@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Mandatory Dump Commands</title>
+<meta name="Description" content="Use obfuscator command comments to change obfuscation encoding defaults, to break whole sections of code, and to rewire a function to go to another function.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>For Dynamic Obfuscation, Use dumps commands</h1>
+<div>
+See <a href="dumpcommands.htm">explanation of DUMP COMMANDS</a> for more information before.
+</div>
+
+<h2><a name="dynobf_dump"></a>Place these mandatory dump commands</h2>
+<div>
+For <span class="highlight">Dynamic Obfuscation</span>, you MUST use <span class="highlight">DUMP  comment commands</span>.
+</br>Add these 4 function calls <b>at the very beginning of your script in your <span class="highlight">Auto-execute section</span> :</b>
+</br>
+<pre><code>;*******************************************************************************
+</br>obf_dumpcommonobjfrags()
+</br>obf_dumpunclassed()
+</br>obf_dumpunsecclasses()
+</br>obf_dumpall()
+</br>;*******************************************************************************</code></pre>
+Then add the functions containing the Obfuscator <span class="highlight">DUMP  comment commands</span> below in the code, <b>after your <span class="highlight">Auto-execute section</span></b>
+</br>to actually make the dumps when the script will be obfuscated
+
+<pre><code>;*******************************************************************************
+</br>; &nbsp; &nbsp; &nbsp; &nbsp;                O B F &nbsp; D U M P &nbsp; F U C T I O N S
+</br>;*******************************************************************************
+</br>;$OBFUSCATOR: $FUNCS_CHANGE_DEFAULTS: ,, -1
+</br>obf_dumpcommonobjfrags() 
+</br>{
+</br>	global
+</br>;$OBFUSCATOR: $DUMP_SECFRAGS_FORCLASSES: common
+</br>;$OBFUSCATOR: $DUMP_TMESSFRAGS_FORCLASSES: common
+</br>} 
+</br>;$OBFUSCATOR: $FUNCS_RESTORE_DEFAULTS:
+</br>
+</br>;$OBFUSCATOR: $FUNCS_CHANGE_DEFAULTS: ,, -1
+</br>obf_dumpunclassed()
+</br>{
+</br>	global
+</br>;$OBFUSCATOR: $FUNCFRAGS_DUMPCLASS: unclassed
+</br>;$OBFUSCATOR: $LABELFRAGS_DUMPCLASS: unclassed
+</br>}
+</br>
+</br>obf_dumpunsecclasses()
+</br>{
+</br>	global
+</br>;$OBFUSCATOR: $FUNCFRAGS_DUMPCLASS: unsecclasses
+</br>;$OBFUSCATOR: $LABELFRAGS_DUMPCLASS: unsecclasses 
+</br>}
+</br>;$OBFUSCATOR: $FUNCS_RESTORE_DEFAULTS:
+</br>
+</br>obf_dumpall() 
+</br>{
+</br>	global
+</br>;$OBFUSCATOR: $ALLFRAGS_DUMPALL:
+</br>}</code></pre>
+
+</div>
+
+<h2><a name="dynobf_allfragsdump"></a>ALLFRAGS_DUMPALL Command</h2>
+<div>
+This command is a shortcut to dump in one place all necessary fragments, which could have individually be stated by the following commands
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $GLOBVARFRAGS_DUMPALL:
+</br>;$OBFUSCATOR: $GLOBPARTIALVARSFRAGS_DUMPALL:
+</br>;$OBFUSCATOR: $LOSVARFRAGS_DUMPALL:
+</br>;$OBFUSCATOR: $SYSVARFRAGS_DUMPALL:
+</br>;$OBFUSCATOR: $PARAMFRAGS_DUMPALL: 
+</br>;$OBFUSCATOR: $SYSFUNCFRAGS_DUMPALL:
+</br>;$OBFUSCATOR: $SYSPROPERTIESFRAGS_DUMPALL:
+</br>;$OBFUSCATOR: $SYSMETHODSFRAGS_DUMPALL:</font></pre>
+</div>
+
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

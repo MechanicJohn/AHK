@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Obfuscate more, obfuscate all!</title>
+<meta name="Description" content="This allows you to create a layered scrambled Sandwich out of the functions and label sections of your obfuscated Autohotkey program.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/></iframe>
+<!-- <iframe style="border-width:0px;float:left" src="iFrames/topnote-toimprove.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/></iframe> -->
+<!-- !!! TO BE IMPROVED !!!! -->
+<font color="orange">This part should be improved later on...</font>
+
+<h1>Obfuscate more, obfuscate all!</h1>
+Once you have obfuscate most of your variables you will realize that there are still some left-overs which are not obfuscated that might give some clues as what the portion of code is handling.
+</br>For example you will realize that <b>AHK built-in variables, commands, operators, numbers and strings cannot be automatically obfuscated</b>.
+</br>Fortunately there are some steps you can take to try to obfuscate nearly everything !
+
+<h2><a name="stringsinvars"></a>Convert built-in variables</h2>
+<div>
+If you want to obfuscate built-in variables that are surrounded by <code>%'s</code> or obfuscate built-in variables in non-global functions (straight mode) you can assign the built-in variable to a custom variable before the statements and obfuscate this variable.
+</div>
+
+<h2><a name="stringsinvars"></a>Convert recurring Strings to variables</h2>
+<div>
+If you want to obfuscate strings you already know you can hide them with the <code>hidestr()</code> function.
+</br>However if a string is recurring, one simple solution can be to create a global or superglobal var with this string, replace all occurrences of the string by this var (which would also be better for maintainability) and declare this var to the Obfuscator. When you assign the string to the (super)global var use <code>hidestr()</code> for better obfuscation.
+</br>Thus the recurring strings will be obfuscated as well!
+</div>
+
+<h2><a name="numbersinvars"></a>Convert numbers to variables</h2>
+<div>
+You will soon remark that all your numbers are not obfuscated automatically. If the number has some special meaning (ex:256 for AES256) and therefore is quite sensitive, or if there are recurring numbers (like numbers from 1 to 10), you can also apply a similar strategy as above by creating superglobals that would contain the values of these numbers and replace their uses by these variables.
+</br>Thus sensitive and recurring numbers will be obfuscated as well!
+</div>
+
+<h2><a name="operatorsinfct"></a>Convert Autohotkey math operators into functions</h2>
+<div>
+Autohotkey standard math operators (<code>- + / // = </code> etc.) CANNOT be obfuscated as they do not accept to be called dynamically.
+</br>However you can:
+</br><b>-Create or use custom function equivalents</b>
+</br>There are some libraries that have many function equivalents you can insert and use in your code to replace Autohotkey standard math operators. Or you can create yours. This is very useful to obfuscate sensitive math operators  which do not have standard Autohotkey function equivalent.
+
+<pre><code>ex: if (var1 / var2 - var3 = 15)
+</br>could become
+</br>if EQUALS(MINUS(DIVIDE(var1 , var2) , var3) , 15 )</code></pre>
+
+<font color="green">As I did not find such an existing library I have started create one : <a href="https://github.com/DigiDon34/DigiDon-AHK-Libs/blob/master/Ahk-Operators-Functions/">Ahk-Operators-Functions</a></font>
+</br>Thus Autohotkey math operators will be obfuscated as well!
+</div>
+
+<h2><a name="commandsinfct"></a>Convert Autohotkey commands into functions</h2>
+<div>
+Autohotkey standard commands CANNOT be obfuscated as they do not accept to be called dynamically.
+</br>However there are 2 solutions you can use:
+</br><b>-Replace them by their Autohotkey system function equivalent, if they exist.</b>
+</br><font color="green">See AHK official documentation of <a href="https://autohotkey.com/docs/Functions.htm#BuiltIn">Built-in functions</a>.</font>
+</br>ex: <code>StringSplit()</code> instead of <code>StringSplit, OutputVar, InputVar,..</code>.
+</br>and declare these Autohotkey functions to the Obfuscator.
+</br><b>-Create or use custom function equivalents</b>
+</br>There are some libraries that have many function equivalents you can insert and use in your code to replace Autohotkey standard commands. Or you can create yours. This is very useful to obfuscate sensitive commands which do not have standard Autohotkey function equivalent.
+</br><font color="green">I can recommend the great library produced by Coco : <a href="https://github.com/cocobelgica/AutoHotkey-Future">Port of AutoHotkey v2.0-a built-in functions for AHK v1.1+</a></font>
+</br><font color="green">I have forked it so you can have all functions in only 1 lib file : <a href="https://github.com/DigiDon34/AutoHotkey-Future-Single-File">Ahk Command Functions Equivalent - Single File</a></font>
+</br>ex: <code>SetTimer()</code>
+</br>Thus Autohotkey commands will be obfuscated as well!
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Obfuscation Mode Commands</title>
+<meta name="Description" content="Use obfuscator command comments to change obfuscation encoding defaults, to break whole sections of code, and to rewire a function to go to another function.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1><a name="mantag"></a>Obfuscation Mode Commands</h1>
+
+<h2><a name="dynassumed"></a>Dynamic mode is assumed</h2>
+<div>
+Dynamic Obfuscator assumes <span class="highlight">Dynamic Obfuscation</span> mode as it is the ultimate goal and most recommended method.
+<br>To ease the process the Obfuscator automatically switch itself to straight obfuscation when a function is not global.
+<br>However, as <span class="highlight">Straight Obfuscation</span>  might be easier to debug, there is the possibility of manually switching back and forth between <span class="highlight">Straight Obfuscation</span> and <span class="highlight">Dynamic Obfuscation</span>.
+<br>Also to make debug again simpler and to allow keeping some code blocks intact, it is possible to tell the Obfuscator to stop obfuscating some blocks.
+</div>
+
+<h2><a name="manualswitch"></a>Manual switch between Straight mode and Dynamic Mode</h2>
+<div>
+Use this command to <span class="highlight">START/RESUME Straight Obfuscation</span>: 
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $STRAIGHT_MODE:</font></pre>
+And use this command to <span class="highlight">START/RESUME Dynamic Obfuscation</span>: 
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DYNAMIC_MODE:</font></pre>As stated above <span class="highlight">Dynamic Obfuscation</span> is assumed, thus before any <span class="highlight">STRAIGHT_MODE</span> comment, dynamic obfuscation will be applied.
+<br><span class="highlight">Non-global</span> function will always use <span class="highlight">Straight Obfuscation</span> automatically as they do not support <span class="highlight">Dynamic Obfuscation</span>.
+<br>They will have to be converted to <span class="highlight">global function</span> in order for <span class="highlight">Dynamic Obfuscation</span> to be effective.
+</div>
+
+<h2><a name="mantag"></a>You can STOP/RESUME Obfuscation for sections of code</h2>
+<div>
+Use this command to <span class="highlight">STOP obfuscation</span>: 
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $STOP_OBF</font></pre>
+And use this command to <span class="highlight">RESUME obfuscation</span>: 
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $RESUME_OBF:</font></pre>
+<b>No obfuscation will be done at all EXCEPT if any previous label or function are detected</b>.
+<br>In this case they will be replaced by the actual obfuscated names to avoid any mistakes.
+<br>Also <b>as an exeption any <code>ihidestr()</code> call is replaced</b> to still allow for hidden strings.
+</div>
+
+<h2><a name="mantag"></a>You can STOP/RESUME new Obfuscation of some types</h2>
+<div>
+Use these commands to <span class="highlight">STOP taking into account new objects of a specific type for obfuscation</span>: 
+<pre><code>;$OBFUSCATOR: $FUNCS_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $PARAMS_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $LABELS_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $GLOBVARS_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $LOSVARS_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $SYSVARS_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $SYSPROPERTIES_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $SYSMETHODS_CHANGE_DEFAULTS:-1
+;$OBFUSCATOR: $SYSFUNCS_CHANGE_DEFAULTS:-1
+</code></pre>
+And use this command to <span class="highlight">RESUME obfuscation</span>:
+Use these commands to <span class="highlight">RESUME taking into account new objects of a specific type for obfuscation</span>: 
+<pre><code>;$OBFUSCATOR: $FUNCS_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $PARAMS_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $LABELS_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $GLOBVARS_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $LOSVARS_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $SYSVARS_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $SYSPROPERTIES_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $SYSMETHODS_RESTORE_DEFAULTS:
+;$OBFUSCATOR: $SYSFUNC_RESTORE_DEFAULTS:
+</code></pre> 
+To the difference of <code>;$OBFUSCATOR: $STOP_OBF</code>, <b>this does not stop previous objects from being obfuscated, but only new</b>.
+Useful to deactivate obfuscation of a specific functions parameters/variables that can cause some issues.
+</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

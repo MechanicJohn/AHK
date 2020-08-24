@@ -1,0 +1,640 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Example of an Autohotkey Script Obfuscated by this Program</title>
+<meta name="Description" content="See an 70,000 lines, fully functional program written in autohotkey and obfuscated with this program.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- ;Put class in body -->
+<!-- <body class="language-autohotkey"> -->
+<!-- COMMAND IN BROWN -->
+<!-- <pre class="language-"><font color="brown">OBFUSCATOR</font></pre> -->
+<!-- ;EXAMPLE IN BLUE -->
+<!-- </br><pre class="language-"><font color="blue">EXAMPLE</font></pre> -->
+<!-- ;LONG EXAMPLE IN PURPLE + CODE -->
+<!-- <pre><font color="purple">TEXT <code>CODE</code></font></pre> -->
+<!-- ;CODE -->
+<!-- <pre><code>CODE</code></pre> -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<!-- ***************************** -->
+<!-- JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>Example of an Autohotkey Script Obfuscated by this Program</h1>
+All of these codes are the same program that will run exactly the same. You can copy-paste and try it yourself :)
+
+<h2><font color="green">MUCH MORE EXEMPLES AVAILABLE</font></h2>
+<div>Provided in '@Example-obfuscated-programs' folder of the Obfuscator files.</div>
+
+<h2>Here's Some Sample Of The Actual Code</h2>
+<div>
+<pre><code>#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+globalvar1:="The value of global is:"
+globalvar2:="This is a test"
+
+;test obfuscation of function call
+testfunction()
+
+return
+
+
+testfunction(paramvar="params are automatically obfuscated") {
+global
+local localvar1,localvar2
+
+localvar1:="The value of local is:"
+localvar2:="This is a test"
+msgbox % localvar1 "`n" localvar2 "`n" globalvar1 "`n" globalvar2 "`n" paramvar
+
+}</code></pre>
+</div>
+
+
+<h2>Here is the commented prepared code for Straight obfuscation</h2>
+<div>
+<pre><code>#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+;[INFO] use this statement to set obfuscation IF YOU WANT STRAIGHT OBFUSCATION (most basic). Otherwise you need to use dumps functions for dynamic obfuscation.
+;$OBFUSCATOR: $STRAIGHT_MODE:
+
+
+;[INFO] You CAN ask to obfuscate your global variables 
+;You CAN also use this command for local variables if you wish to put them all on top, and do not want to specify them each time inside the function
+;$OBFUSCATOR: $DEFGLOBVARS: globalvar1,globalvar2
+
+globalvar1:="The value of global is:"
+globalvar2:="This is a test"
+
+;test obfuscation of function call
+testfunction()
+
+return
+;[INFO] put after the end of the autoexecute section
+;$OBFUSCATOR: $END_AUTOEXECUTE: 
+
+
+;[INFO] RESPECT THE FUNCTION CONVENTIONS
+;only the opening bracket CAN be at character 1 of the line
+;only the end bracket MUST BE at character 1 of the line
+testfunction(paramvar="params are automatically obfuscated") {
+global
+local localvar1,localvar2
+;[INFO] You CAN ask to obfuscate the local variables by listing them INSIDE the function
+;$OBFUSCATOR: $DEFLOSVARS: localvar1,localvar2
+
+localvar1:="The value of local is:"
+localvar2:="This is a test"
+msgbox % localvar1 "`n" localvar2 "`n" globalvar1 "`n" globalvar2 "`n" paramvar
+
+}</code></pre>
+</div>
+
+<h2>Here is the Straight obfuscated result (with comments)</h2>
+<div>
+<pre><code>obf_copyright := " Date: 18:17 lundi 19 mars 2018                 "
+obf_copyright := "                                                "
+obf_copyright := " THE FOLLOWING AUTOHOTKEY SCRIPT WAS OBFUSCATED "
+obf_copyright := " BY DYNAMIC OBFUSCATOR L FOR AUTOHOTKEY         "
+obf_copyright := " Adapted by DigiDon                             "
+obf_copyright := "                                                "
+obf_copyright := " Based on DYNAMIC OBFUSCATOR                    "
+obf_copyright := " Copyright (C) 2011-2013  David Malia           "
+obf_copyright := " DYNAMIC OBFUSCATOR is released under           "
+obf_copyright := " the Open Source GPL License                    "
+
+
+;AUTOEXECUTE ORIGINAL NAME: autoexecute
+;autoexecute
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+;[INFO] use this statement to set obfuscation to straight obfuscation!
+;$OBFUSCATOR: $STRAIGHT_MODE:
+
+
+;[INFO] You CAN ask to obfuscate your global variables 
+;You CAN also use this command for local variables if you wish to put them all on top, and do not want to specify them each time inside the function
+;$OBFUSCATOR: $DEFGLOBVARS: k#fk%kkf@@kf@%@f,k#@fk%k@fkk#%@k@@%f@@fk#%kkf
+
+k#fk@%@kfkkkff%f:="The value of global is:"
+k#%#fkf@f%%#fff%@fk@k@@kkf:="This is a test"
+
+;test obfuscation of function call
+@%kk#f@kkk%fkff#%#k@k%k#k#kkkff#()
+
+return
+
+;[INFO] RESPECT THE FUNCTION CONVENTIONS
+;only the end bracket is at character 1 of the line
+;FUNCTION ORIGINAL NAME: testfunction
+@fkff#k#k#kkkff#(k@#f#f#k#fk@f#k#="params are automatically obfuscated") {
+global
+local f#fkkfkk@f@f@kkkk@,@kk#f@f@kfkfk##k@f@kf#
+;[INFO] You CAN ask to obfuscate the local variables by listing them INSIDE the function
+;$OBFUSCATOR: $DEFLOSVARS: f#fkk%ffkfkk%fkk@f@f@kkkk@,@kk#f@%@f@k%f@kfkf%@k#f%k##k@f@kf#
+
+f#fkk%@f@ffkfk%fkk@f@f@kkkk@:="The value of local is:"
+@kk%#fff%#%k#@kkk%f@f@kfkfk##k@f@kf#:="This is a test"
+msgbox % f#f%k##k#f%kkfkk@%kk#f%f@f@kkkk@ "`n" @kk#f%kk#f@kkk%@f@kfkfk##k@f@kf# "`n" k#%k@fff@%%k@@ff#k@%fk@f "`n" k#@fk%f#fkkk#k%@k@@k%k@f@kk%kf "`n" k@#f#%f##k%f#k#fk@f#k#
+
+}</code></pre>
+</div>
+
+<h2>Here is the commented prepared code for Dynamic obfuscation</h2>
+<div>
+<pre><code>#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+;[INFO] use this statement to set dynamic obfuscation
+;$OBFUSCATOR: $DYNAMIC_MODE:
+
+;[INFO] DUMP CALLS : For dynamic obfuscation we need to call these functions before anything needs to be obfuscated
+;**************************************
+;DUMP FUNCTION CALLS (DUMP FUNCTIONS ARE INSERTED BELOW)
+obf_dumpcommonobjfrags() 
+obf_dumpunclassed() 
+obf_dumpunsecclasses() 
+obf_dumpall() 
+;************************************* 
+
+
+;[INFO] You CAN ask to obfuscate your global variables 
+;You CAN also use this command for local variables if you wish to put them all on top, and do not want to specify them each time inside the function
+;$OBFUSCATOR: $DEFGLOBVARS: globalvar1,globalvar2
+
+globalvar1:="The value of global is:"
+globalvar2:="This is a test"
+
+;test obfuscation of function call
+testfunction()
+
+return
+;[INFO] put after the end of the autoexecute section
+;$OBFUSCATOR: $END_AUTOEXECUTE: 
+
+
+;[INFO] RESPECT THE FUNCTION CONVENTIONS
+;only the opening bracket CAN be at character 1 of the line
+;only the end bracket MUST BE at character 1 of the line
+testfunction(paramvar="params are automatically obfuscated") {
+global
+local localvar1,localvar2
+;[INFO] You CAN ask to obfuscate the local variables by listing them INSIDE the function
+;$OBFUSCATOR: $DEFLOSVARS: localvar1,localvar2
+
+localvar1:="The value of local is:"
+localvar2:="This is a test"
+msgbox % localvar1 "`n" localvar2 "`n" globalvar1 "`n" globalvar2 "`n" paramvar
+
+}
+
+;[INFO] DUMP FUNCTIONS : JUST COPY PASTE THIS INTO YOUR SCRIPT
+;*************************************************************
+;         O B F   D U M P   F U C T I O N S 
+;************************************************************* 
+;$OBFUSCATOR: $FUNCS_CHANGE_DEFAULTS: ,, -1 
+obf_dumpcommonobjfrags() 
+{ 
+global 
+;$OBFUSCATOR: $DUMP_SECFRAGS_FORCLASSES: common 
+;$OBFUSCATOR: $DUMP_TMESSFRAGS_FORCLASSES: common 
+} 
+;$OBFUSCATOR: $FUNCS_RESTORE_DEFAULTS: 
+
+;$OBFUSCATOR: $FUNCS_CHANGE_DEFAULTS: ,, -1 
+obf_dumpunclassed() 
+{ 
+global 
+;$OBFUSCATOR: $FUNCFRAGS_DUMPCLASS: unclassed 
+;$OBFUSCATOR: $LABELFRAGS_DUMPCLASS: unclassed 
+} 
+
+obf_dumpunsecclasses() 
+{ 
+global 
+;$OBFUSCATOR: $FUNCFRAGS_DUMPCLASS: unsecclasses 
+;$OBFUSCATOR: $LABELFRAGS_DUMPCLASS: unsecclasses 
+} 
+;$OBFUSCATOR: $FUNCS_RESTORE_DEFAULTS: 
+
+obf_dumpall() 
+{ 
+global 
+;$OBFUSCATOR: $ALLFRAGS_DUMPALL: 
+}</code></pre>
+</div>
+
+<h2>Here is the Dynamic obfuscated result (with comments)</h2>
+<div>
+<pre><code>obf_copyright := " Date: 22:38 lundi 19 mars 2018                 "
+obf_copyright := "                                                "
+obf_copyright := " THE FOLLOWING AUTOHOTKEY SCRIPT WAS OBFUSCATED "
+obf_copyright := " BY DYNAMIC OBFUSCATOR L FOR AUTOHOTKEY         "
+obf_copyright := " Adapted by DigiDon                             "
+obf_copyright := "                                                "
+obf_copyright := " Based on DYNAMIC OBFUSCATOR                    "
+obf_copyright := " Copyright (C) 2011-2013  David Malia           "
+obf_copyright := " DYNAMIC OBFUSCATOR is released under           "
+obf_copyright := " the Open Source GPL License                    "
+
+
+;AUTOEXECUTE ORIGINAL NAME: autoexecute
+;autoexecute
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+;[INFO] use this statement to set dynamic obfuscation
+;$OBFUSCATOR: $DYNAMIC_MODE:
+
+;[INFO] DUMP CALLS : For dynamic obfuscation we need to call these functions before anything needs to be obfuscated
+;**************************************
+;DUMP FUNCTION CALLS (DUMP FUNCTIONS ARE INSERTED BELOW)
+k#@ff%@kk@f#k#%k#f@f#k@f@k() 
+f@k%#f#k@k%#ffff@fkk@f() 
+f%kfffkf%@@k@kk%@kk@f#k#%fkf#fff() 
+#ffk%kfk#@fkfkf#k#kkk#f#k%fk@k##f%k@f@#f@k%#kkk() 
+;************************************* 
+
+
+;[INFO] You CAN ask to obfuscate your global variables 
+;You CAN also use this command for local variables if you wish to put them all on top, and do not want to specify them each time inside the function
+;$OBFUSCATOR: $DEFGLOBVARS: k%k@k#k#%%k#k@f#kffffkk#@k@f#fkf%%f@#f@k@k%fk@kf@,f%@kkkfk%k%k#@k%f%f#k@@fkkk@@fk@@f%k#kf
+
+k%#fk@k#f@kkf#k#kf%f%ffff@k@k%k%f#fk#f%@kf@:="The value of global is:"
+f%ffkk@k@k@f@f#f%%kk@kk#k@k#fkk@f#kkk#%f%kkfkf#ff%k%kf@kffk#%#kf:="This is a test"
+
+;test obfuscation of function call
+%f@#ffffff#kf@fk@%%#kf#kkk#%%fkf##f@k%()
+
+return
+
+;[INFO] RESPECT THE FUNCTION CONVENTIONS
+;only the opening bracket CAN be at character 1 of the line
+;only the end bracket MUST BE at character 1 of the line
+;FUNCTION ORIGINAL NAME: testfunction
+k#k@f#fkf#@kff#k(f@fff#f@#f#fkf="params are automatically obfuscated") {
+global
+local @k@k#ff@#f#f@kf@k@k@@k,kfkk@fkkk#ff#f
+;[INFO] You CAN ask to obfuscate the local variables by listing them INSIDE the function
+;$OBFUSCATOR: $DEFLOSVARS: %f#fk#f%%f#ffkk%%@k@kkk#kfkf@k@k@k@fk@kk@fffk%,%#f#k@k%%k#kkfkkkf#k@ffk#k@#k@kff#ff#%%k@kk%
+
+%f@ff@f%%kk#f#ffkf@k@k#ff#ff@@kk#%%@kfkkf%:="The value of local is:"
+kfk%fkk@k#%k%k@k#@kkkffk#fkkk@f@k%f%k#kkfk#fkff@f@@k%kk#ff#f:="This is a test"
+msgbox % @k@%@k#fff%k#f%@kf##f#fff#kf#k@f@%@#f%fkk@f#fkfk#kkkkffk%f@kf@k@k@@k "`n" kfk%kk#fk@fkff@f@ffffkk@#f%%ffkf#k@k%@fk%ffk##kk#%kk#ff#f "`n" k%@ff#f#kk#k#kk#fkk@fkkk%f%kfffk#@fkkkk#f%%@kk#%@%#kf@f@ff%kf@ "`n" f%#k@fk@f#k#k@#kkf@fk@@fkk%ffk%@f#kk@fk%#kf "`n" f%kfk##k%@%kkf#f@#kf#kk@f@kfkff%ff%#kf#kkk#%#f%@ff#f#kk#k#kk#fkk@fkkk%#f#fkf
+
+}
+
+;[INFO] DUMP FUNCTIONS : JUST COPY PASTE THIS INTO YOUR SCRIPT
+;*************************************************************
+;         O B F   D U M P   F U C T I O N S 
+;************************************************************* 
+;$OBFUSCATOR: $FUNCS_CHANGE_DEFAULTS: ,, -1 
+;FUNCTION ORIGINAL NAME: obf_dumpcommonobjfrags
+k#@ffk#f@f#k@f@k() {  
+global 
+	;SECURITY CLASS FRAG: for class: COMMON for char: f
+	#%fk#ff#@k%kf%kkf#fk%k%@k@f%f#%kfkk#fff%#f#kkffkkk=%kfk#kk%f%fk#fff@k%
+	;SECURITY CLASS FRAG: for class: COMMON for char: k
+	f%ff@kk@@k%f%@fkk%ff%@kk#%%kfk##k%k@f##f@f=%kkf#fk%k%fk#k%
+	;SECURITY CLASS FRAG: for class: COMMON for char: @
+	f%@ffk%%k@f#k@f#%k%#kfkffk@%%f@ff#f%#ff@kkfkfk@k#f=%k@#kk@f@%@%kffkf#%
+	;SECURITY CLASS FRAG: for class: COMMON for char: #
+	f@%k@kk%f%#f#k@k%#%ffk##kk#%kfk##f@kkk=%ffff@k@k%#%f@#f@k@k%
+
+;TRIPLE MESS FRAGMENTS FOR: f
+	f@k#%kkfkf#ff%fkf%#kfkf##f#kkffkkk%fk#f%ffffk@f##f@f%ff@f##k:=#%k@kk%kf%ffffk@f##f@f%f#%f#kk#fk@%#%#kfkf##f#kkffkkk%%f@f#kfk##f@kkk%kkffkkk
+	f#%k@f#k@f#%k@@%#f#f@fkf%fk%ffffk@f##f@f%k@%fk#ff@kkfkfk@k#f%fk@@f:=#%ffffk@f##f@f%%ffk##kk#%%#kfkf##f#kkffkkk%%@ffk%k%#kfkf##f#kkffkkk%##f#kkffkkk
+	@kf%f@f#kfk##f@kkk%%#kfkf@@f%#f%#kf@#k%%f@f#kfk##f@kkk%fff#kf#k@f@:=#k%#kfkf##f#kkffkkk%kf%kk@kkff#%##f%f@f#kfk##f@kkk%kkffkkk
+	k%#kfkf##f#kkffkkk%%#kfkf##f#kkffkkk%%#f#k@k%k%#fk#f@fk%k%#kfkf##f#kkffkkk%@fkf@k#k#f#f#f:=#%kk@kkff#%%kk#ff#%kf%ffffk@f##f@f%%#kfkf##f#kkffkkk%##f#kkffkkk
+	@fk@f%ffffk@f##f@f%f%fkkfff%@kk%#kfkf##f#kkffkkk%kkf%#kfkf##f#kkffkkk%#kkkkffk@:=#kf%ffffk@f##f@f%f##%#kfkf##f#kkffkkk%%fkk@k#%%fkk@k#%#kkffkkk
+	f%#ffk@kfk%f%#f@k#kk#%kf%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%f@k@@fkkffk@:=#%#fkkk#f#%kf%ffffk@f##f@f%f%f@f#kfk##f@kkk%#f%f@f#kfk##f@kkk%kkffkkk
+	#%@f#kk@@k%kf%f#kk#fk@%k@k%#kfkf##f#kkffkkk%@f%fk#ff@kkfkfk@k#f%k#k#@f:=#%k@f#k@f#%%k@f@#f@k%%ffffk@f##f@f%f%ffffk@f##f@f%f##f#kkffkkk
+	f##%@k@fffkf%ff#%f@@kkk#k%fk%ffffk@f##f@f%#f%#kfkf##f#kkffkkk%ff%#kfkf##f#kkffkkk%fff#kfkfk:=#k%f@@kkk#k%fkf%f@f#kfk##f@kkk%#%#kfkf##f#kkffkkk%#k%ffffk@f##f@f%ffkkk
+	f@%f@f#kfk##f@kkk%k%@f#kk@@k%f@k%#kfkf##f#kkffkkk%kfffkkfk:=#k%fkkfff%fk%#kfkf##f#kkffkkk%#%f@f#kfk##f@kkk%%#kfkf##f#kkffkkk%#kkffkkk
+	f@k#%kk#fk#ff%fffkf%@k@k%@%ffffk@f##f@f%#kk%#kfkf##f#kkffkkk%f@fffffff:=#k%f#k#k@@f%fkf#%f@f#kfk##f@kkk%f%f@f#kfk##f@kkk%kkffkkk
+	fff%f@f#kfk##f@kkk%f%@kk@f#k#%ff%f#k#k@@f%%f@f#kfk##f@kkk%k#kkkf#k:=#kf%kk#ff#%%ffffk@f##f@f%f%f@f#kfk##f@kkk%#%#kfkf##f#kkffkkk%#kkffkkk
+	#kfk#k%ffffk@f##f@f%#@kk#@f%fkkfff%%#kfkf##f#kkffkkk%@#ff#kk#k:=#kfk%#kfkf##f#kkffkkk%##f%f@f#kfk##f@kkk%kkff%#kf@#k%kkk
+	@%f@kf@f#f%k%#kfkf##f#kkffkkk%f%#kfkf##f#kkffkkk%ffkfkkff@@k:=#k%#kfkf##f#kkffkkk%kf##%f#ffkk%%#kfkf##f#kkffkkk%#kkffkkk
+	kk@%fkf#%%ffffk@f##f@f%%kk@kkff#%k%f@f#kfk##f@kkk%k@k#fkk@f#kkk#:=#k%ffff@k@k%fk%#kfkf##f#kkffkkk%%f@f#kfk##f@kkk%#f%k#@fkkf#%#kkffkkk
+	#k%f@fkk@%@k%ffffk@f##f@f%k%ffffk@f##f@f%%ffffk@f##f@f%ff#fk@:=#%ffff@k@k%kfk%#kfkf##f#kkffkkk%##%#kfkf##f#kkffkkk%#kkffkkk
+	k%kk#ff#%@f%f@f#kfk##f@kkk%fkk%fk#ff@kkfkfk@k#f%%k@f@#f@k%fk%#kfkf##f#kkffkkk%k@fff@fk#k@:=#%k@#kk@f@%k%#kfkf##f#kkffkkk%%k@f@#f@k%%ffffk@f##f@f%%#kfkf##f#kkffkkk%##f#kkffkkk
+	#f%kkkk#k%kk%f@f#kfk##f@kkk%kk%fk#ff@kkfkfk@k#f%@ff@fkf#kk#f#f@f:=#%ffffk@f##f@f%fk%f@#f@k@k%f#%f@f#kfk##f@kkk%f#kkffkkk
+	kkf%@kk#%#f%fk@fk#fk%@#k%#kfkf##f#kkffkkk%#kk%fk#ff@kkfkfk@k#f%f@%ffffk@f##f@f%fkff:=#%@f#kk@fk%%ffffk@f##f@f%f%ffffk@f##f@f%%#kfkffk@%f##f#kkffkkk
+	k%kkkff@k#%@%ffffk@f##f@f%%ffffk@f##f@f%f%f@@kkk#k%f%#kfkf##f#kkffkkk%fkkf@k@:=#%ffffk@f##f@f%%@k#fff%fkf%f@f#kfk##f@kkk%#f#kkffkkk
+	@f%#kfkf##f#kkffkkk%@k%ffk##kk#%@@k%fk#ff@kkfkfk@k#f%k#k@kfk#f#k:=#kf%fk#k%k%#kfkf##f#kkffkkk%#%f@f#kfk##f@kkk%%#kfkf##f#kkffkkk%#kkffkkk
+;TRIPLE MESS FRAGMENTS FOR: k
+	f%#kfkf##f#kkffkkk%%#f#k@k%%#kf@#k%k%ffffk@f##f@f%@k@k@f@f#f:=ff%@ffk%f%#kfkf##f#kkffkkk%%ffffk@f##f@f%@%fkkfff%f##f@f
+	kk%kfffkf%@fk%f@f#kfk##f@kkk%@f%ffffk@f##f@f%#ff%f@f#kfk##f@kkk%kff@kffk#:=ff%#kfkf##f#kkffkkk%%kffkf#%f%ffffk@f##f@f%@%k@@kk##f%f##f@f
+	f%f#kk#fk@%%ffffk@f##f@f%k%#kfkf##f#kkffkkk%fk%fk@f%#fkff#@fff:=ff%kffkf#%f%#kfkf##f#kkffkkk%k@%#kfkf##f#kkffkkk%#%f@f#kfk##f@kkk%f@f
+	k#%k@kk%%kk#fff%k%ffffk@f##f@f%fk%f@f#kfk##f@kkk%fk%#kfkf##f#kkffkkk%f@f@@k:=ff%#kk#k@fk%ffk%fk#ff@kkfkfk@k#f%f%f@f#kfk##f@kkk%#f@f
+	f%f@f#kfk##f@kkk%%fkf#%#k#%ffffk@f##f@f%%ffffk@f##f@f%%kk#fk#ff%kk@ffk#k#f@@k@k:=ff%@kkk#kfk%f%#kfkf##f#kkffkkk%k%fk#ff@kkfkfk@k#f%f%f@f#kfk##f@kkk%#f@f
+	k%f@ff@f%@%#kfkf##f#kkffkkk%%ffffk@f##f@f%f%kf@kffk#%#kffk@k@f#k:=ff%#kfkf##f#kkffkkk%f%f@@kkk#k%%@k@fffkf%k%fk#ff@kkfkfk@k#f%f##f@f
+	ff%ffffk@f##f@f%#%#kfkf##f#kkffkkk%kfkk@%kfffkf%@fk#kkf@@f#f:=ff%#kfkf##f#kkffkkk%fk%f#ffkk%@f%f@f#kfk##f@kkk%#f%fk#ff@kkfkfk@k#f%f
+	#k%@kfkk#f#%@fk@f#k%f@f#kfk##f@kkk%k@#kkf%fk#ff@kkfkfk@k#f%fk@@fkk:=fff%f#fk#f%fk@%#kfkf##f#kkffkkk%##%#kfkf##f#kkffkkk%@f
+	k%f@f#kfk##f@kkk%f%f#k#k@@f%#k#%f@f#kfk##f@kkk%k@%ffffk@f##f@f%#fkkk@ffff:=ff%k#@fkkf#%ff%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%f#%f@f#kfk##f@kkk%f@f
+	kf@f%k#@k%fk%#kfkf##f#kkffkkk%%ffffk@f##f@f%@ffff#fk:=f%#kfkf##f#kkffkkk%%f@#f@k@k%%#kfkf##f#kkffkkk%%@f#kk@@k%f%ffffk@f##f@f%@f##f@f
+	k%k@@kk##f%%f@f#kfk##f@kkk%k#kf%@kf@fk%#ffk%f@f#kfk##f@kkk%kkff#@kkff@:=ff%#kfkf##f#kkffkkk%fk%kfk#kk%@%#kfkf##f#kkffkkk%##f@f
+	kfk@%f@f#kfk##f@kkk%k@k%kfffkf%f@kf%ffffk@f##f@f%fff#kfk:=ff%#kfkf##f#kkffkkk%fk%fk@fk#fk%@f%f@f#kfk##f@kkk%#%#kfkf##f#kkffkkk%@f
+	k%#fkkk#f#%k%f@f#kfk##f@kkk%fk@%#kfkf##f#kkffkkk%kf%#kfkf##f#kkffkkk%@f@ffffkk@#f:=f%#kfkf##f#kkffkkk%f%kf#ffk%%f#kkff%f%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%f##f@f
+	k%#kfkf##f#kkffkkk%%#kfkf##f#kkffkkk%fk%kkffkff#%#@fkkkk#f:=f%ffk##k%f%#kfkf##f#kkffkkk%fk%fk#ff@kkfkfk@k#f%%#kfkf##f#kkffkkk%##f@f
+	kk#f%kfffkf%#k%ffffk@f##f@f%k@kf%f@f#kfk##f@kkk%fk%ffffk@f##f@f%kffkkkfk@:=fff%#kfkf##f#kkffkkk%k@f%f#ffkk%##f%fk#ff@kkfkfk@k#f%f
+	k#%f@f#kfk##f@kkk%fk%#kf#kkk#%k%ffkf#k@k%k%f@f#kfk##f@kkk%k%fk#ff@kkfkfk@k#f%fkfkffff:=f%#fk#%f%#kfkf##f#kkffkkk%f%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%f##f@f
+	k@k@%f#k#k@@f%kkk%ffffk@f##f@f%k#f@%#kfkf##f#kkffkkk%kf#k#%fk#ff@kkfkfk@k#f%k#k@k:=f%ffff%f%#kfkf##f#kkffkkk%fk%fk#ff@kkfkfk@k#f%f#%f@f#kfk##f@kkk%f@f
+	f#%@kk#%@k@%#kfkf##f#kkffkkk%%fk#ff@kkfkfk@k#f%ff%fk@fk#fk%#@%ffffk@f##f@f%fkfk@k#kkk:=f%#kfkf##f#kkffkkk%ff%f@ff#f%%ffffk@f##f@f%@f%kkk@#f%##f@f
+	ff@%#kfkffk@%fk@%kffkf#%@k%ffffk@f##f@f%#f%ffffk@f##f@f%f#kk#k:=f%#kfkf##f#kkffkkk%ff%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%f#%k#f#k#%#f@f
+	#k@f@%#kfkf##f#kkffkkk%f%fk#k%@#k%ffk##k%%#kfkf##f#kkffkkk%@fk@ffkk@ff#k:=f%#kfkf##f#kkffkkk%%fk@f%%#kfkf##f#kkffkkk%%#f#k@k%%#kfkf##f#kkffkkk%k@f##f@f
+;TRIPLE MESS FRAGMENTS FOR: @
+	kff%k@f#k@f#%%kkffkff#%@%f@f#kfk##f@kkk%k@%#kfkf##f#kkffkkk%@kk@@k#k#k:=fk%f@f#kfk##f@kkk%ff%@f#kk@@k%%fk#ff@kkfkfk@k#f%k%ffffk@f##f@f%fkfk@k#f
+	#k@%kf#ffk%kk%fk#ff@kkfkfk@k#f%#%ffffk@f##f@f%#kkk#f:=f%ffffk@f##f@f%#%#kfkf##f#kkffkkk%%@f@ff#f@%%#kfkf##f#kkffkkk%%f@ff@f%@kkfkfk@k#f
+	k%#kfkf##f#kkffkkk%%ffffk@f##f@f%#@f%f#kkff%kf%ffffk@f##f@f%f#k#kkk#f#k:=f%ffffk@f##f@f%%f@f#kfk##f@kkk%ff%kk@kkff#%@kk%#kfkf##f#kkffkkk%kfk@k#f
+	@ff%#kf#kkk#%#%#kfkf##f#kkffkkk%%f@f#kfk##f@kkk%kk%@kk@f#k#%#k#%ffffk@f##f@f%k#fkk@fkkk:=f%@kfkk#f#%k#%#kfkf##f#kkffkkk%f@%#fkkk#f#%%ffffk@f##f@f%k%#kfkf##f#kkffkkk%kfk@k#f
+	@%#kfkf##f#kkffkkk%k%kfk##k%@%#kfkf##f#kkffkkk%%ffffk@f##f@f%f#k@f##kf@:=fk%k@f##k#k%%f@f#kfk##f@kkk%f%#kfkf##f#kkffkkk%@k%ffffk@f##f@f%fkfk@k#f
+	#f#%ffff%ff@%ffffk@f##f@f%#%ffffk@f##f@f%%f@f#kfk##f@kkk%#kkfkff#ff:=fk%f@f#kfk##f@kkk%ff@%f@#f@k@k%k%@f@ff#f@%%ffffk@f##f@f%fkfk@k#f
+	f%f@f#kfk##f@kkk%kk%fk#ff@kkfkfk@k#f%kffk%f##fk#%k%kf#ffk%fff@k#f@f@:=fk%f@f#kfk##f@kkk%%#kfkf##f#kkffkkk%f%f@ff@f%%fkf#%@%ffffk@f##f@f%kfkfk@k#f
+	#ff%k#@k%k%f@f#kfk##f@kkk%kk#%ffffk@f##f@f%@k#f@:=fk%f@f#kfk##f@kkk%%#kfkf##f#kkffkkk%f%#kf#kkk#%@kkfkfk@k#f
+	kkk%#kfkf@@f%#%k#f#k#%%#kfkf##f#kkffkkk%k%#kfkf##f#kkffkkk%f#fkk#kk##k@fkkkk:=fk%f@f#kfk##f@kkk%f%@fkfkk%f@%ffffk@f##f@f%%ffffk@f##f@f%f%@k@f%kfk@k#f
+	f##%#kf@#k%k#f@%ffffk@f##f@f%k#k@%f@f#kfk##f@kkk%fff%fk#ff@kkfkfk@k#f%fk#fkff:=f%kk#ff#%k#f%#kfkf##f#kkffkkk%@kkf%ffffk@f##f@f%fk@k#f
+	k@k%kf@kffk#%#@%ffffk@f##f@f%kkffk%f@f#kfk##f@kkk%fkkk@f@k:=fk%f@f#kfk##f@kkk%%#kfkf##f#kkffkkk%f%fk#ff@kkfkfk@k#f%kk%kk#ff#%%kkf#fk%fkfk@k#f
+	k#k@%#kfkf##f#kkffkkk%#%ffffk@f##f@f%ffff%f@ff#f%kk#%k#@k%@k@f#fkf:=fk#%kkkk#k%ff@%ffffk@f##f@f%kf%ffffk@f##f@f%fk@%ffffk@f##f@f%#f
+	@%ffffk@f##f@f%k@fff%#kfkf##f#kkffkkk%f%@kkk#kfk%ff%@ffk%f#kkkf#kf#fff:=fk#%fkf@ff%ff%fk#ff@kkfkfk@k#f%%ffffk@f##f@f%kfk%#fk#%fk@k#f
+	@%k#@k%f%fk#ff@kkfkfk@k#f%ffk%#kfkf##f#kkffkkk%fff%fk#ff@kkfkfk@k#f%fkf@f:=fk#f%ffk##k%f%fk#ff@kkfkfk@k#f%%ffffk@f##f@f%kfkfk@k#f
+	kf@%#kfkf##f#kkffkkk%k%ffffk@f##f@f%kfk%#ffk@kfk%#%fk#ff@kkfkfk@k#f%kfkkk:=fk#%#kfkf##f#kkffkkk%f@%ffffk@f##f@f%%f@ff#f%kfk%k#@fkkf#%fk@k#f
+	k%kk#ff#%ffk%#kfkf##f#kkffkkk%%#kfkf##f#kkffkkk%k@@k%ffffk@f##f@f%#f#ff#ffkf@:=fk%@k@fff%#f%#kfkf##f#kkffkkk%@%f@f##fkk%k%ffffk@f##f@f%%#kfkf##f#kkffkkk%kfk@k#f
+	#%@f#kk@fk%%f#fkk@%fk@%ffffk@f##f@f%%f@f#kfk##f@kkk%f@kkf#k#kf:=fk%kkf#fk%#f%#kfkf##f#kkffkkk%@kkf%ffffk@f##f@f%fk@k#f
+	k@#k%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%k@f%k@@kk##f%##%kk#ff#%fkff#@fk#:=f%ffffk@f##f@f%#f%#kfkf##f#kkffkkk%%k#f#k#%@kkfkfk@k#f
+	f%@kkk#kfk%%fk#ff@kkfkfk@k#f%%fk#ff@kkfkfk@k#f%%#kfkf##f#kkffkkk%%f#kkff%f#k##f#f@k:=fk%@kkkfk%#f%#kfkf##f#kkffkkk%%fk#ff@kkfkfk@k#f%kk%#kfkf##f#kkffkkk%k%fk#fff@k%fk@k#f
+	@%#kfkf##f#kkffkkk%#%#f@k#kk#%ffk%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%f#fkkf#f:=f%ffffk@f##f@f%#%kfk##k%%#kfkf##f#kkffkkk%f@%ffffk@f##f@f%k%f#fkk@%fkfk@k#f
+;TRIPLE MESS FRAGMENTS FOR: #
+	#k%f@f#kfk##f@kkk%%#kf@#k%%#kfkf##f#kkffkkk%#k@%#kfkf##f#kkffkkk%f#k#f##f:=f%f@ff@f%@%#kfkf##f#kkffkkk%#%ffffk@f##f@f%%#kfkf##f#kkffkkk%k##f@kkk
+	kk%#kfkf##f#kkffkkk%kfk%@kk#%#%ffffk@f##f@f%%ffffk@f##f@f%f#kf#k@fk@f:=f%fk#ff#@k%@%#kfkf##f#kkffkkk%%f@f#kfk##f@kkk%kf%f#fkk@%k##f@kkk
+	k%#kfkf##f#kkffkkk%%k#@k%%#kfkf##f#kkffkkk%%#kfkf##f#kkffkkk%@kfk#kk#kf:=f%fk#ff@kkfkfk@k#f%f%f@f#kfk##f@kkk%k%f@f##fkk%fk%f@f#kfk##f@kkk%#f@kkk
+	kf%fk#ff@kkfkfk@k#f%fk@#k%f#ffkk%#kk%f@f#kfk##f@kkk%#ff#@f@k:=f@f%@f@ff#f@%#%ffffk@f##f@f%f%ffffk@f##f@f%##f@kkk
+	@f%fkf##f@k%#k%f@f#kfk##f@kkk%k%k@f@#f@k%%ffffk@f##f@f%f@%#kfkf##f#kkffkkk%@ff@#f@kkfk@:=f%f#k#k@@f%%kkkff@k#%%fk#ff@kkfkfk@k#f%f%f@f#kfk##f@kkk%k%#kfkf##f#kkffkkk%k##f@kkk
+	k%f@f#kfk##f@kkk%k#%f#kk#fk@%kk%fkf#%ff%ffffk@f##f@f%k%f@f#kfk##f@kkk%kkkf#k@f#k@f#:=f@%kfk#kk%f#%ffffk@f##f@f%f%ffffk@f##f@f%%#kk#k@fk%##f@kkk
+	#%@k@f%%ffffk@f##f@f%%#kfkf##f#kkffkkk%fkk%ffffk@f##f@f%@fff@@k@k:=f@%#kfkf##f#kkffkkk%#%ffffk@f##f@f%%@k@fffkf%f%ffffk@f##f@f%##f@kkk
+	f#%@kk@f#k#%%ffffk@f##f@f%%fk#ff@kkfkfk@k#f%@ffk@f@k@f#f#f:=f@%#kfkf##f#kkffkkk%#k%#kfkf##f#kkffkkk%k#%#fkkk#f#%#f@kkk
+	@%@k@fffkf%fk%#kfkf##f#kkffkkk%%f@fkk@%%fk#ff@kkfkfk@k#f%%ffffk@f##f@f%k#f@k@f#fff#f#f#f#:=f@%k@k#k#%%#fk#f@fk%%#kfkf##f#kkffkkk%%f@f#kfk##f@kkk%kfk##f@kkk
+	f#%#kfkf##f#kkffkkk%fk#@%ffffk@f##f@f%#f%kkkk#k%kk@kf@:=f%k@#kk@f@%@%#kfkf##f#kkffkkk%#k%#kfkf##f#kkffkkk%k#%f@f#kfk##f@kkk%f@kkk
+	kf%#kfkf##f#kkffkkk%@%#kk#k@fk%@%ffffk@f##f@f%@kf##kk##f:=f%f##kf@%%fk#ff@kkfkfk@k#f%f%f@f#kfk##f@kkk%%ffffk@f##f@f%fk##f@kkk
+	k%#f#k@k%ff%#kfkf##f#kkffkkk%%#kfkf##f#kkffkkk%@%#kfkf##f#kkffkkk%f#kk@f#:=f@f%f@f#kfk##f@kkk%k%ff@kk@@k%fk%f@f#kfk##f@kkk%#f@kkk
+	#%fkkfff%fk%ffffk@f##f@f%k#%#kfkf##f#kkffkkk%k%ffffk@f##f@f%@kkk#k@:=f%fk#ff@kkfkfk@k#f%f%kfkk#fff%#%ff@kk@@k%kf%ffffk@f##f@f%##f@kkk
+	#%ffffk@f##f@f%k%fk#ff@kkfkfk@k#f%k#%fk#ff@kkfkfk@k#f%k%kk#fff%f#k%kk@kkff#%kf#fkkkkff#fk:=f%kk#ff#%@%#kfkf##f#kkffkkk%#%f#k#k@@f%%ffffk@f##f@f%f%ffffk@f##f@f%##f@kkk
+	k#%#kfkf##f#kkffkkk%%kk@kkff#%%fk#ff@kkfkfk@k#f%f%fk#ff@kkfkfk@k#f%kkff@f@kk#ff:=f%fkf@ff%@f%ffkf#k@k%%f@f#kfk##f@kkk%k%#kfkf##f#kkffkkk%k##f@kkk
+	fk%ffffk@f##f@f%@%f##fk#%%k@@kk##f%%#kfkf##f#kkffkkk%#f%ffffk@f##f@f%fk#kkkkffk:=f%fk#ff@kkfkfk@k#f%%#kfkf##f#kkffkkk%#%k@f#k@f#%k%#kfkf##f#kkffkkk%k%@k@fffkf%##f@kkk
+	f#%ffffk@f##f@f%fk@%#ffk@kfk%f%fk@fk#fk%ff#%fk#ff@kkfkfk@k#f%kkk%ffffk@f##f@f%kf@kk#fk#:=f@%k@k#k#%f#%ffffk@f##f@f%f%ffffk@f##f@f%##%#kfkf##f#kkffkkk%@kkk
+	@%fkf#f@%%ffffk@f##f@f%ff@%ffffk@f##f@f%f@k@%#kfkf##f#kkffkkk%fkf@k@kkkffkk:=f@f%f@f#kfk##f@kkk%%ffffk@f##f@f%%kkffkff#%fk##f@kkk
+	k@ffk#%#kfkf##f#kkffkkk%%f@f#kfk##f@kkk%@%@kk#%ffk@ffff@kf#fff:=f%fk#ff@kkfkfk@k#f%%k#k@k#%f#%ffffk@f##f@f%%kfkk#fff%fk##f@kkk
+	@ff%#kfkf##f#kkffkkk%%#f@k#kk#%k#%@kkkfk%@%ffffk@f##f@f%#kk@#kkk:=f@f%fkf##f@k%#%ffffk@f##f@f%%#kfkf##f#kkffkkk%k##f@kkk
+
+} 
+
+;$OBFUSCATOR: $FUNCS_RESTORE_DEFAULTS: 
+
+;$OBFUSCATOR: $FUNCS_CHANGE_DEFAULTS: ,, -1 
+;FUNCTION ORIGINAL NAME: obf_dumpunclassed
+f@k#ffff@fkk@f() {  
+global 
+;OBF_FUNC name: testfunction
+	f@%@f#kk@@k%#%#k@kkkkkff#fk@%f%ffkfk@f@k@@fkkffk@%f%f@#kf@kfkfffkkfk%f#kf@fk@=k#k%@f@ffkffff@fkf@f%f#%f@#kf@kfkfffkkfk%%@k@f%kf#@kff#k
+	#f%fkf#%kff%k#k@f#kffffkk#@k@f#fkf%fk%@ff#f#kk#k#kk#fkk@fkkk%fffkk=k#k@%@fk@fkf@kkfkkff#kkkkffk@%#%k@kkffffkkf@k@%%kk@kkff#%kf#@kff#k
+;OBF_FUNC name: obf_dumpcommonobjfrags
+;OBF_FUNC name: obf_dumpunclassed
+;OBF_FUNC name: obf_dumpunsecclasses
+;OBF_FUNC name: obf_dumpall
+	f%f#kfk@fff#@kkkkkf@kk#fk#%%@kf##f#fff#kf#k@f@%#%f@fkk@%k%@kf##f#fff#kf#k@f@%f#kfk@#f=#f%k@kk%fk%f@kf@f#f%@f%kfffk#@fkkkk#f%%#fk@k#f@kkf#k#kf%%f#@k@f@ff#@kfkfk@k#kkk%##f#kkk
+	#k%fk@f%%k@ffk#f#@ffk@ffff@kf#fff%kkk%f##k#kkkk@ffk#k#f@@k@k%#f%kffff@ff#kk@f#%fff#f@=#%@kf##f#fff#kf#k@f@%f%@f#kk@fk%%fkkffk#fkff#@fff%@f%@ffk%k@%k@fkf#kffk@k@f#k%##f#kkk
+} 
+
+
+;FUNCTION ORIGINAL NAME: obf_dumpunsecclasses
+f@@k@kkfkf#fff() {  
+global 
+
+
+} 
+
+;$OBFUSCATOR: $FUNCS_RESTORE_DEFAULTS: 
+
+;FUNCTION ORIGINAL NAME: obf_dumpall
+#ffk@fk@k##f#kkk() {  
+global 
+;$OBFUSCATOR: $ALLFRAGS_DUMPALL: 
+
+
+;OBF_GLOBVAR name: globalvar1
+	f%@k@fffkf%f%@f#kk@fk%%@fffk#@k#kk@#kkk%%#kfk#kk#@kk#@ff@#ff#kk#k%@f@f=k%#k@kk@#k#kkk#f%%kkkff@k#%%@ff@k@@k@k#k@kfk#f#k%%#f#k@k%%k@fkf#kffk@k@f#k%@kf@
+	#%@kk#%k%ffkk@k@k@f@f#f%%f##ff#fkk#ffffffff#kfkfk%%kk#f#kkk@kf#fkkkffkkkfk@%@k@=k%k@f##k#k%%k@#kk@k@f##fkff#@fk#%%#kfk@kf@f@k#k#@f%k@kf@
+;OBF_GLOBVAR name: globalvar2
+	%f#@k@f@ff#@kfkfk@k#kkk%%kfk#kk%%fk@k@f%%kf@ffkfk@ffff#fk%%kkfkfk#kkf#kf#k@fk@f%kfffk=f%#k@f@ff@#kf@fk@ffkk@ff#k%%@k@f%f%f@#kf@kfkfffkkfk%k#kf
+	k%kk@kkff#%%#fkkk#fkk@kkk#k@%k%kffff@ff#kk@f#%#%k@f#k@f#%%f@#kf@kfkfffkkfk%#fkk#f=f%kf@ffkfk@ffff#fk%%k@kkffffkkf@k@%%f##kf@%%#f#k@k%%f#k@@fkkk@@fk@@f%k#kf
+
+;PARAMETERS for function  named: testfunction
+;OBF_FUNC_1_PARAM name: paramvar
+	@%f@kf@f#f%kfk%@kff@kf@k@ffkf@k@kkkffkk%%kk@fk#@fk#ff#kff@kffk#%%@ff@k@@k@k#k@kfk#f#k%%@f#kk@fk%f#fkkf#@ff#k#f#kk=f@f%kkf#f@#kf#kk@f@kfkff%f#f%#ffk#kk#k@k#f@%#f#%f#fkk@%fkf
+	#f%kffkkf@fkf@k#k#f#f#f%@#%kkf#f@#kf#kk@f@kfkff%ff%kfk#kk%%ffkk@k@k@f@f#f%%k@kf@k%kfffk@kf#f#kfkf#f=f%fkkfff%@%#kfk@kf@f@k#k#@f%%f#k@@fkkk@@fk@@f%%f@#kf@kfkfffkkfk%#f@#f#fkf
+
+;LOS vars for function  named: testfunction
+;OBF_FUNC_1_LOSVAR name: localvar1
+	@k%@kfkk#f#%@kkk#%kk@fk#@fk#ff#kff@kffk#%%f@k#fffkf@k#kkff@fffffff%kf@k@k@k@fk@kk@fffk=@%fkf@ff%k@%#k@f@ff@#kf@fk@ffkk@ff#k%%@fkf@kk#f@k@f#fff#f#f#f#%%@kfffffkfkkff@@k%f@#f#f@kf@k@k@@k
+	kk%k#k#kkffkk#kkkf#k@f#k@f#%f#f%ffk##k%fkf@k@%kfffk#@fkkkk#f%#ff#ff@@kk#=@%fkf#%%kfk@#k@kf@kfkfff#kfk%@k#%#k@kkkkkff#fk@%f@%#k#f#k@ff#k#f##f%f#f@kf@k@k@@k
+;OBF_FUNC_1_LOSVAR name: localvar2
+	k%k#k#kkffkk#kkkf#k@f#k@f#%kkfkkk%@kfffffkfkkff@@k%#k@f%fkf#f@%fk#%k@fkf#kffk@k@f#k%@#k@kff#ff#=kf%kkk@#f%%fkkffk#fkff#@fff%%kfk##k%k@%#kfk@kf@f@k#k#@f%kkk#ff#f
+	@%kf@kffk#%k@%fk#fff@k%f@k%k@k#@kkkffk#fkkk@f@k%fkf%@ff@k@@k@k#k@kfk#f#k%@fffkk@=kf%@f#kk@@k%kk%#kfkf@@f%%#fk@k#f@kkf#k#kf%%@fk@fkf@kkfkkff#kkkkffk@%kkk#ff#f
+}
+
+</code></pre>
+</div>
+
+<h2>Here is the Dynamic obfuscated result (without comments)</h2>
+<div>
+<pre><code>obf_copyright := " Date: 00:22 jeudi 17 mai 2018                  "
+obf_copyright := "                                                "
+obf_copyright := " THE FOLLOWING AUTOHOTKEY SCRIPT WAS OBFUSCATED "
+obf_copyright := " BY DYNAMIC OBFUSCATOR L FOR AUTOHOTKEY         "
+obf_copyright := " Adapted by DigiDon                             "
+obf_copyright := "                                                "
+obf_copyright := " Based on DYNAMIC OBFUSCATOR                    "
+obf_copyright := " Copyright (C) 2011-2013  David Malia           "
+obf_copyright := " DYNAMIC OBFUSCATOR is released under           "
+obf_copyright := " the Open Source GPL License                    "
+
+;autoexecute
+#NoEnv 
+SendMode Input 
+SetWorkingDir %A_ScriptDir% 
+#kffkk%kff@k@f#%f#fkffk@()
+k%#fk#f@@k%@@%f@#k%f@kfk@f#k#k()
+k%kf@kkkfk%kfk#ff@k@kfk##f()
+%@k@f@kkf%%fkfkkkfkk@ff%%ffk#kk%()
+%ffkkk#k@%%kk@ff@#k%%ff#k%:="The value of global is:"
+k%#fkk%%@f#kfkk#k@k#kf@f@f%f@%#kf#kfkkf#ffkf#ff@k#%%ff#k%#k##fkf:="This is a test"
+ff%@ff@kk%%@f@kk##kk#@fffffk#kkkk@f%%@kf@f#f@kkk@@f%@fkfk@fkkf()
+return
+ff@k@fkfk@fkkf(fff#fff@kff#@k="params are automatically obfuscated") {
+global
+local k#k@k@kkkf#kff,kf@k@fk@ffkfkff#@fkfk@
+%ffkkf#fk%%kkff#k@ff#fff#kkfkf#k#kf#k%%k@fk#kkf%:="The value of local is:"
+kf@k%kkkkfk%@fk%kkfk%@%@k@kf@#fff@kkkkk%f%kkfkkkff#kkfkk#k#k%fkff#@fkfk@:="This is a test"
+msgbox % k%k@k@#k%%k@k#@f#kkkk#fff#%k%kffkk@#k%@k@kkkf#kff "`n" kf@k%k#f##fkkkkkk#kfk%fk%@f@kk##kk#@fffffk#kkkk@f%%fk@ffff@%ffk%fkk#%fkff#@fkfk@ "`n" f%@k#ff@f@k@fk@f@f%@%@fff%k%fff#%#kfk "`n" k#%@k@f@kkf%%k#fkfff#f@k@f#%@f%#fk#f#%%@f@f@f@kk@f@fff@@fff%k##fkf "`n" f%kff@k@f#%ff#fff%#kf@#f#f#kk#f#k#@fk@%kff#@k
+}
+#kffkkf#fkffk@() {  
+global
+kf%fkf@ff%k%#ffffk%kk%@k@k@f%k@f#ffffkk@@k#k=%fff@k@%f%@k@kk@fk%
+kf%kkkkfffk%#%kffkk#fk%f%kk#kf@#k%%k#@fkfk#%k@k@@kkk=%ffkkf#fk%k%f@f@#f#k%
+@k#k%kkkkfk%#%kfkfffk#%fkf%kff@k@f#%k##k%ffkkk#k@%kk@k#kkfkk=%kf#k@kkf%@%kk#kf@#k%
+kk%f#ffkf@k%kf%k#fkfk%@f%kf@kkkfk%fk%kfkff#%ffk@#k@kf#f@=%fff#%#%kkk@%
+@%k#fkfk%%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%kkk#ffffk#k#:=k%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%kkk%fk@ffff@%@%kfkkkk@f#ffffkk@@k#k%#ffffkk@@k#k
+f@%kfkkkk@f#ffffkk@@k#k%#%kfkkkk@f#ffffkk@@k#k%@f%f@#k%fk%k#fkfk%@@kfkkf:=kf%kf#fk@k@@kkk%kkk%@k#k#fkfk##kkk@k#kkfkk%f#f%#f#k#f%%kfkkkk@f#ffffkk@@k#k%ff%kfkfffk#%kk@@k#k
+#ff%@k#k#fkfk##kkk@k#kkfkk%kf%k@f@k@f#%#%kf#fk@k@@kkk%f#%@k#k#fkfk##kkk@k#kkfkk%k@kfk@k:=k%fff#%f%kf#fk@k@@kkk%kkk%@k#k#fkfk##kkk@k#kkfkk%f#%kfkkkk@f#ffffkk@@k#k%fffkk@@k#k
+fff%kkff#kkk%#@%fff#%fk%kkkf@ffkffk@#k@kf#f@%%kfkkkk@f#ffffkk@@k#k%%@k#k#fkfk##kkk@k#kkfkk%k@k#kkf@fkkkkk:=kfk%kf#fk@k@@kkk%kk%ffff#k%@f#%kfkkkk@f#ffffkk@@k#k%fff%kf#fk@k@@kkk%k@@k#k
+#k#%kfkkkk@f#ffffkk@@k#k%kkkf%k@fk#kkf%#%kfkkkk@f#ffffkk@@k#k%@kkk%ffk#f#%f@kk@fff:=k%kfkkkk@f#ffffkk@@k#k%k%kf#fk@k@@kkk%kk%@k#k#fkfk##kkk@k#kkfkk%%f#@k%f#f%#ffffk%fffkk@@k#k
+ff#%kfkfffk#%kf%kf#fk@k@@kkk%@ff%kfkkkk@f#ffffkk@@k#k%f#%kkkf@ffkffk@#k@kf#f@%f@k:=k%fkkf@ffk%f%kf#fk@k@@kkk%kkk%@k#k#fkfk##kkk@k#kkfkk%f%k#fkk@f#%#ffffkk@@k#k
+f%kf#fk@k@@kkk%f#kk%kf#fk@k@@kkk%ff#%k@k@%f#kkk@#kk@:=kfk%kf#fk@k@@kkk%kk@f#%fk@ffff@%f%kfkkkk@f#ffffkk@@k#k%ffkk@@k#k
+@%fkkf@ffk%fkfff%kf#fk@k@@kkk%@f@#f%kkkf@ffkffk@#k@kf#f@%fff@kk@k#:=k%f#@ff#%f%@ff#kkf@%%kf#fk@k@@kkk%k%kf#fk@k@@kkk%k@f%kkkf@ffkffk@#k@kf#f@%ffffkk@@k#k
+@fkf%kfkkkk@f#ffffkk@@k#k%%f@fk%#%@k#k#fkfk##kkk@k#kkfkk%ffkfkff#kfkfk:=k%@kfkk#%fkk%kf#fk@k@@kkk%k%@k#k#fkfk##kkk@k#kkfkk%f#f%kfkkkk@f#ffffkk@@k#k%ffk%k#ff%k@@k#k
+f#%k@fk#kkf%%kf#fk@k@@kkk%kkk%kkkkfffk%%kf#fk@k@@kkk%%@k#k#fkfk##kkk@k#kkfkk%k@kkf@fkk@#ffk:=kfkk%kkff%kk@%fkk#%f%kkkf@ffkffk@#k@kf#f@%ffff%kf#fk@k@@kkk%k@@k#k
+#kf#%@kf#ffkf%kfkk%kfkkkk@f#ffffkk@@k#k%#ffk%kfkkkk@f#ffffkk@@k#k%#%kfkkkk@f#ffffkk@@k#k%f@k#:=kfk%kf#fk@k@@kkk%k%k@f#k#k#%k%@k#k#fkfk##kkk@k#kkfkk%f#ffffkk@@k#k
+#%kf#fk@k@@kkk%k@f@%kf#fk@k@@kkk%%f@k@ff%ff%@ff#kkf@%f@kk@@k@k@k:=kfkk%kf#fk@k@@kkk%k@f%ffk#f#%#ff%kfkkkk@f#ffffkk@@k#k%fkk%@k#k#fkfk##kkk@k#kkfkk%@k#k
+fkkff#%@k#k#fkfk##kkk@k#kkfkk%kkk@%fkf@ff%kf@#ffk%kfkkkk@f#ffffkk@@k#k%ff@@f:=k%kfkkkk@f#ffffkk@@k#k%kkkk%#ff#k@%@f#%kfkkkk@f#ffffkk@@k#k%fff%#kf#kf%kk@@k#k
+kf%kfkkkk@f#ffffkk@@k#k%f%kfkkkk@f#ffffkk@@k#k%k%kfkkkk@f#ffffkk@@k#k%@k%#fkk%k@kfk:=kf%kfkff#%kkk%kf#fk@k@@kkk%%f@k@ff%%@k#k#fkfk##kkk@k#kkfkk%f#%kfkkkk@f#ffffkk@@k#k%fffkk@@k#k
+kfk@f%kf#fk@k@@kkk%ffff%kfkfffk#%#ffk%f@f@#f#k%f@f%@k#k#fkfk##kkk@k#kkfkk%k@k#@k:=kf%kf#fk@k@@kkk%kkk%fff@f#fk%%ffk#kk%@f#f%kfkkkk@f#ffffkk@@k#k%ffkk@@k#k
+f#%kfkkkk@f#ffffkk@@k#k%%@f#f%ff%@k#k#fkfk##kkk@k#kkfkk%@kf%kkff#kkk%#%kf#fk@k@@kkk%fkk@f@kf#f@:=kfk%kf#fk@k@@kkk%kk@f%kkkf@ffkffk@#k@kf#f@%ffff%k@fk#kkf%kk@%k@ff%@k#k
+f#fk#%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%#%ffk#kk%kfffkkk#k@:=kf%f@fk%%kf#fk@k@@kkk%kkk@%kfkkkk@f#ffffkk@@k#k%#f%kfkkkk@f#ffffkk@@k#k%ffkk@@k#k
+k%@fff%#%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%ff%kfkkkk@f#ffffkk@@k#k%#f@k@f#:=kfk%kf#fk@k@@kkk%k%kf#fk@k@@kkk%@f#%kk@k#f%ffff%@ff#kkf@%kk@@k#k
+k%@k#k#fkfk##kkk@k#kkfkk%@f@%kf#fk@k@@kkk%%#ff#k@%%kfkkkk@f#ffffkk@@k#k%@k@@k#fk#f@:=k%kfkkkk@f#ffffkk@@k#k%kkk%fkf@ff%k@%kfkkkk@f#ffffkk@@k#k%#%kfkkkk@f#ffffkk@@k#k%fff%@ff@kk%kk@@k#k
+@%k#fkk@f#%k@%@fffk#%kf%@k#k#fkfk##kkk@k#kkfkk%#f%kfkkkk@f#ffffkk@@k#k%%kfkkkk@f#ffffkk@@k#k%@kkkkk:=kfkk%@kf#ffkf%kk@f%kkkf@ffkffk@#k@kf#f@%ff%kfkkkk@f#ffffkk@@k#k%fkk@@k#k
+f#%kfkkkk@f#ffffkk@@k#k%ffk%kf#fk@k@@kkk%#%@k@k@f%kkk#%@k#k#fkfk##kkk@k#kkfkk%kfffkfkkfkk:=k%f@k#kk%f%f#@k%%kkkf@ffkffk@#k@kf#f@%%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%@k@@kkk
+ff%kfkkkk@f#ffffkk@@k#k%k%kkkf@ffkffk@#k@kf#f@%%kf#fk@k@@kkk%@f#%@k@f#f%%ff#k%fkfkk#kf#ffk#@f:=kf%@k@f@kkf%%k#fkk@f#%#%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%@k@@kkk
+@f@%kf#fk@k@@kkk%fk%kkkf@ffkffk@#k@kf#f@%f#fkf%f@fk%kff@#k:=kf#%f@@ff@fk%fk@%kf#fk@k@@kkk%@@%kf#fk@k@@kkk%kk
+k%kkkf@ffkffk@#k@kf#f@%@ff%kff@k@f#%%@k#k#fkfk##kkk@k#kkfkk%fk%kf#fk@k@@kkk%ffkk@ffkf:=kf#%kfkkkk@f#ffffkk@@k#k%k@k%@k#k#fkfk##kkk@k#kkfkk%@%fkf@ff%kkk
+@%ff#f%%#kkf@ff@%%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%#%kfkkkk@f#ffffkk@@k#k%#k#k#ff#kfk@ffk#kff:=k%@k@f@kkf%%ffkkk#k@%f%kkkf@ffkffk@#k@kf#f@%%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%@k@@kkk
+#ff%kkkf@ffkffk@#k@kf#f@%f%fff@k@%@f@#k%kkkf@ffkffk@#k@kf#f@%ffk#k%kfkkkk@f#ffffkk@@k#k%ffffff@:=k%f@kkff%%kfkkkk@f#ffffkk@@k#k%#f%kf#fk@k@@kkk%@%kf#fk@k@@kkk%@@kkk
+@k%ff@f#k@f%f@f%kkkf@ffkffk@#k@kf#f@%f@k%kf#fk@k@@kkk%k@@f:=kf%kkkf@ffkffk@#k@kf#f@%f%kf#fk@k@@kkk%@%@f#f%k%#f#k#f%@@kkk
+kkf%@kff#k%%kkkf@ffkffk@#k@kf#f@%f#%@k#k#fkfk##kkk@k#kkfkk%k@f%@k#k#fkfk##kkk@k#kkfkk%f@f#ff@:=k%kfkkkk@f#ffffkk@@k#k%#%kfkkkk@f#ffffkk@@k#k%k%@k#k#fkfk##kkk@k#kkfkk%%#ffffk%%kfkfffk#%k@@kkk
+f%kk#kkffk%kf#%fkk#%f#%kf#fk@k@@kkk%kkk%kfkkkk@f#ffffkk@@k#k%##kfk:=k%kfkkkk@f#ffffkk@@k#k%%ffk#kk%%kkkf@ffkffk@#k@kf#f@%f%kf#fk@k@@kkk%@%f#@ff#%k@@kkk
+@%kfkkkk@f#ffffkk@@k#k%%#fkk%%f@f@#f#k%%kf#fk@k@@kkk%#k%@k#k#fkfk##kkk@k#kkfkk%fkk#f#kkfkkf:=kf%ff#f%#%kfkkkk@f#ffffkk@@k#k%k%@k#k#fkfk##kkk@k#kkfkk%%kf#fk@k@@kkk%@@kkk
+#f%kfkkkk@f#ffffkk@@k#k%fkk%kkkf@ffkffk@#k@kf#f@%fk%kk#kf@#k%#@kf#kfk#@f:=k%kfkkkk@f#ffffkk@@k#k%%#kkf@ff@%%kkkf@ffkffk@#k@kf#f@%%kfkkkk@f#ffffkk@@k#k%k%k@k@#k%@k@@kkk
+ff%kf#fk@k@@kkk%f%@k@k@f%f%k@k@#k%@%kf#fk@k@@kkk%ff#%kfkkkk@f#ffffkk@@k#k%kkkkfkkk@kf:=k%kfkkkk@f#ffffkk@@k#k%#%#fkf%%fk@ffff@%%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%@k@@kkk
+#fk%fff@k@@k%k#k%kfkfkf@k%%kf#fk@k@@kkk%f@k%kf#fk@k@@kkk%k@k@k:=kf%kkkf@ffkffk@#k@kf#f@%fk%@k#k#fkfk##kkk@k#kkfkk%k@%fkk@#k%@k%kf#fk@k@@kkk%k
+f#@%kf#fk@k@@kkk%%@k#k#fkfk##kkk@k#kkfkk%fff%kf#fk@k@@kkk%@#f%kffkk#fk%f@k@:=kf%fff#%#f%kf#fk@k@@kkk%@%kf#fk@k@@kkk%@%@k#k#fkfk##kkk@k#kkfkk%kkk
+kf%kfkkkk@f#ffffkk@@k#k%@f@k%ffkkk#k@%fk#%@k#k#fkfk##kkk@k#kkfkk%%kf#fk@k@@kkk%kf#fkkk@:=k%kfkkkk@f#ffffkk@@k#k%%@k@kk@fk%%kkkf@ffkffk@#k@kf#f@%fk%kkk@%@k@@kkk
+@f@%kf#fk@k@@kkk%f@k%kfkkkk@f#ffffkk@@k#k%@k%@k#k#fkfk##kkk@k#kkfkk%kf#%ff#k%%fff@k@%f@fkf@@kff:=k%kfkkkk@f#ffffkk@@k#k%#%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%%k#fkfk%%ff@f#k@f%@k@@kkk
+kk%kfk@k#ff%fk%k#fkkkk@%%kf#fk@k@@kkk%%kf#fk@k@@kkk%ff#kkfkk#k#k:=k%kffkk@#k%f#f%kf#fk@k@@kkk%@k%@k#k#fkfk##kkk@k#kkfkk%@kkk
+f%@fffk#%kk%#ffffk%#k%kf#fk@k@@kkk%@%kf#fk@k@@kkk%@%kf#fk@k@@kkk%@ffkkk:=kf%kkkf@ffkffk@#k@kf#f@%fk%@k#k#fkfk##kkk@k#kkfkk%k@%@k#k#fkfk##kkk@k#kkfkk%k%fkk@#k%kk
+@k%fkkf@ffk%f%kf#fk@k@@kkk%f%@kf#ffkf%#%kf#fk@k@@kkk%@kkkk#k#fk#:=k%kfkkkk@f#ffffkk@@k#k%%kkkf@ffkffk@#k@kf#f@%f%k@f#k#k#%k%@k#k#fkfk##kkk@k#kkfkk%k%k@fk#kkf%@@kkk
+fkk%kfkkkk@f#ffffkk@@k#k%@kk%kfkkkk@f#ffffkk@@k#k%ffk#%@kfkk#%k@f#:=k%@f@kkk%f#%kfkkkk@f#ffffkk@@k#k%k%@k#k#fkfk##kkk@k#kkfkk%k@%@k#k#fkfk##kkk@k#kkfkk%kkk
+k%#kkf@ff@%k%@k#k#fkfk##kkk@k#kkfkk%f@f%kfkkkk@f#ffffkk@@k#k%%fff@f#fk%kkfkkkf#k#k:=@k#k%kkkf@ffkffk@#k@kf#f@%f%kf#fk@k@@kkk%%f@f@#f#k%fk##%fff@k@%kkk@k#kkfkk
+k%k#@fkfk#%%kfkkkk@f#ffffkk@@k#k%f%kfkkkk@f#ffffkk@@k#k%k%#kkf@ff@%@k@f@@kf@:=@k%kkkf@ffkffk@#k@kf#f@%k#%kfkkkk@f#ffffkk@@k#k%%fkf@ff%k%ffkkf#fk%%kfkkkk@f#ffffkk@@k#k%k##kkk@k#kkfkk
+@k%kkkf@ffkffk@#k@kf#f@%f#f%kf#fk@k@@kkk%@%@k@f#f%fkk%kkkf@ffkffk@#k@kf#f@%k#f@:=@k%kkkf@ffkffk@#k@kf#f@%%@kkf#kf@%k#fk%k#fkk@f#%f%kf#fk@k@@kkk%##kkk@k#kkfkk
+f%k@k@#k%k%f@f@@f%#f%kf#fk@k@@kkk%%kf#fk@k@@kkk%@k%kfkkkk@f#ffffkk@@k#k%#fkkk#k#fk#fkk@:=@k#k%kkkf@ffkffk@#k@kf#f@%fkf%kf#fk@k@@kkk%##%ffff#k%kkk@k#kkfkk
+ffk#%fff#%%@k@k@f%%kf#fk@k@@kkk%kk@%kfkkkk@f#ffffkk@@k#k%@fkf#kk@f#kk#:=@k#k#f%kf#fk@k@@kkk%f%kkkfk@#f%k%kkkf@ffkffk@#k@kf#f@%#kkk@k#kkfkk
+k%f@k@ff%#%kfkkkk@f#ffffkk@@k#k%%kkkf@ffkffk@#k@kf#f@%#%fff#%fkkkkkk#kfk:=@k%kff@@fff%%k#fkkkk@%#k#%kfkkkk@f#ffffkk@@k#k%kf%kf#fk@k@@kkk%##kkk@k#kkfkk
+k%kkkf@ffkffk@#k@kf#f@%k#k%kff@@fff%%@k#k#fkfk##kkk@k#kkfkk%#k%#fk#f@@k%f%@k#k#fkfk##kkk@k#kkfkk%k@@kf#f@kfk@k#:=@k#%@f#f%k#fkfk%kkkf@ffkffk@#k@kf#f@%#k%kf#fk@k@@kkk%k@k#kkfkk
+k@kk%ff#k%k%kkkf@ffkffk@#k@kf#f@%k%@k#k#fkfk##kkk@k#kkfkk%fk@kf#fff@#k#f:=@k#%kf#fk@k@@kkk%%kkkf@ffkffk@#k@kf#f@%f%kf#fk@k@@kkk%f%#fkk%k##%kfkff@%kkk@k#kkfkk
+#%@k@kk@fk%ff%kfkkkk@f#ffffkk@@k#k%kff%kkkf@ffkffk@#k@kf#f@%@k@%kf#fk@k@@kkk%kk@f:=@k#k%kkkf@ffkffk@#k@kf#f@%f%kf#fk@k@@kkk%f%fkkf@ffk%k#%f@#k%#kkk@k#kkfkk
+#f@f%kf#fk@k@@kkk%fk%f@#k%##k%@k#k#fkfk##kkk@k#kkfkk%kf@k#fk:=@k#k#f%fff@k@@k%%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%k##kkk@k#kkfkk
+#f#kk%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%%fkkf@ffk%kk@#k%kf#fk@k@@kkk%#fk#kk@f#kk:=@k#k%kkkf@ffkffk@#k@kf#f@%fkf%kffkk#fk%k##k%f#ffkf@k%kk%@k#k#fkfk##kkk@k#kkfkk%k#kkfkk
+@k%kf#fk@k@@kkk%#%kfkkkk@f#ffffkk@@k#k%#%kf@kkkfk%kk%@k@kk@fk%f%kkkf@ffkffk@#k@kf#f@%f#k@kk:=@k%kkkf@ffkffk@#k@kf#f@%%f@#k@k%k#fk%kfkkkk@f#ffffkk@@k#k%k##k%k@k@%kk@k#kkfkk
+f@%kk#kkffk%#%kf#fk@k@@kkk%#ff%k@k@%@fk%kfkkkk@f#ffffkk@@k#k%@kff#kf:=@k#k%#kf#kf%%kkkf@ffkffk@#k@kf#f@%f%kf#fk@k@@kkk%fk%kkkf@ffkffk@#k@kf#f@%#kkk@k#kkfkk
+#kf%f@fk%%k#ff%@#f%kkkf@ffkffk@#k@kf#f@%%kfkkkk@f#ffffkk@@k#k%%kkkf@ffkffk@#k@kf#f@%kk#f#k#@fk@:=@%f#ffkf@k%%kf#fk@k@@kkk%#k%kkkf@ffkffk@#k@kf#f@%f%kf#fk@k@@kkk%%kkff#kkk%fk##kkk@k#kkfkk
+k%@k@kk@fk%@%@k#k#fkfk##kkk@k#kkfkk%fff%kfkkkk@f#ffffkk@@k#k%fff%@k#k#fkfk##kkk@k#kkfkk%%k##fff%k#f#ffk#k:=@k#%kf#fk@k@@kkk%#f%kf#fk@k@@kkk%fk#%fff@f#fk%#k%f@k#kk%kk@k#kkfkk
+f%fk@ffff@%k%f@fk%ff%kkkf@ffkffk@#k@kf#f@%%kfkkkk@f#ffffkk@@k#k%@%kfkkkk@f#ffffkk@@k#k%k@kff##k@f:=@%kfkff#%k#k%kkkf@ffkffk@#k@kf#f@%fk%kfkkkk@f#ffffkk@@k#k%k#%k#ff%#kkk@k#kkfkk
+kkk%kf#fk@k@@kkk%@k%kfkkkk@f#ffffkk@@k#k%%f#kf%@kfk#fk:=@k#%kfkfkf@k%k#fk%kfkkkk@f#ffffkk@@k#k%k##kkk%@k#k#fkfk##kkk@k#kkfkk%k#kkfkk
+kkf@@%kk#kf@#k%ff#k%@k#k#fkfk##kkk@k#kkfkk%#fkfk%kfkkkk@f#ffffkk@@k#k%@k#f:=@k#k%#kf#kf%#%kfkkkk@f#ffffkk@@k#k%k%k#fkkkk@%fk%kkkf@ffkffk@#k@kf#f@%#kkk@k#kkfkk
+@%#f#k#f%%kf#fk@k@@kkk%kk%f@k#kk%%@k#k#fkfk##kkk@k#kkfkk%f#kf@@ff@#fk@ffk@:=@%@fff%k#k#fk%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%##kkk@k#kkfkk
+@f@kk##%kf#fk@k@@kkk%k%ff#f%#@f%kfkkkk@f#ffffkk@@k#k%fffk#kkkk@f:=@k%f@k#kk%#%kf#fk@k@@kkk%%kkkf@ffkffk@#k@kf#f@%fkfk##kkk@k#kkfkk
+#k%ffkkf#fk%f#%k#@fkfk#%fk%kkkf@ffkffk@#k@kf#f@%%kf#fk@k@@kkk%f#%kfkkkk@f#ffffkk@@k#k%@f#kk:=kk%kfkfkf@k%%kf#fk@k@@kkk%f@ff%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%fk@#k@kf#f@
+f##fk%kfkkkk@f#ffffkk@@k#k%kk%kfkkkk@f#ffffkk@@k#k%#k@kk%f@f@#f#k%kf@f:=kk%kkkfk@#f%k%kfkkkk@f#ffffkk@@k#k%@f%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%ffk@#k@kf#f@
+f@%f@kkff%%kfkkkk@f#ffffkk@@k#k%%kfkkkk@f#ffffkk@@k#k%k@@kk#kf#fk@k#:=kkkf%@k#k#fkfk##kkk@k#kkfkk%ffk%kfkkkk@f#ffffkk@@k#k%fk@%ffk#kk%#k@%kf#fk@k@@kkk%f#f@
+k#%@k#k#fkfk##kkk@k#kkfkk%k%kfkkkk@f#ffffkk@@k#k%f#%f@#k%fk%#f@ff@%k#kk@ff:=kkk%f@kkff%f%@k#k#fkfk##kkk@k#kkfkk%f%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%ffk@#k@kf#f@
+@f%@k#k#fkfk##kkk@k#kkfkk%f@f%kffkk@#k%@kk@f%@k#k#fkfk##kkk@k#kkfkk%fff@@fff:=kk%kkfk%kf%@k#k#fkfk##kkk@k#kkfkk%ff%kf#fk@k@@kkk%ffk@%kkkf@ffkffk@#k@kf#f@%k@kf#f@
+f%#ff#k@%f%kfkkkk@f#ffffkk@@k#k%f%kfkkkk@f#ffffkk@@k#k%k%kf#fk@k@@kkk%f#ff@k@:=kk%kf#fk@k@@kkk%f%@k#k#fkfk##kkk@k#kkfkk%ff%@kkf#kf@%kffk@#k@kf#f@
+f@f@%@k#k#fkfk##kkk@k#kkfkk%f#%kfkkkk@f#ffffkk@@k#k%f@@k%@k@f@kkf%f#@k%kfkkkk@f#ffffkk@@k#k%f@fff:=k%@ff@kk%k%kf#fk@k@@kkk%f@ff%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%fk@#k@kf#f@
+#k#%kfkfkf@k%f%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%f@kkkkf@:=kk%kf#fk@k@@kkk%f@ff%kf#fk@k@@kkk%f%kkff#kkk%fk@#k@kf#f@
+k%k#@fkfk#%%kk#kf@#k%k%kf#fk@k@@kkk%%@k#k#fkfk##kkk@k#kkfkk%%kf#fk@k@@kkk%#f@@ff@k##ff##f:=k%fkk@#k%kk%kfkkkk@f#ffffkk@@k#k%@ffk%kfkkkk@f#ffffkk@@k#k%fk@#k@kf#f@
+kf%#ffffk%f#k#%kkkf@ffkffk@#k@kf#f@%kf%kkkf@ffkffk@#k@kf#f@%@f#kkf:=kkkf%@k#k#fkfk##kkk@k#kkfkk%ff%kf#fk@k@@kkk%f%kfkkkk@f#ffffkk@@k#k%k@#k%#ffffk%@kf#f@
+@fkkk#k%kkk#f#@k%kfkk#f%kfkkkk@f#ffffkk@@k#k%f%@k#k#fkfk##kkk@k#kkfkk%k@k#@kk@:=kkk%#f#k#f%f@f%kfkkkk@f#ffffkk@@k#k%kf%kfkkkk@f#ffffkk@@k#k%k@#k%ffkkf#fk%@kf#f@
+@f#%#f@ff@%%kfkff@%fk#%kkkf@ffkffk@#k@kf#f@%kk%kkkf@ffkffk@#k@kf#f@%@k@kf@kf:=kkkf%#f#k#f%@ffk%kfkkkk@f#ffffkk@@k#k%fk@%kkkf@ffkffk@#k@kf#f@%k%@k#k#fkfk##kkk@k#kkfkk%kf#f@
+@k%kkkf@ffkffk@#k@kf#f@%%kfkkkk@f#ffffkk@@k#k%f@%@k#kkkf#%f@%kkkfk@#f%k%@k#k#fkfk##kkk@k#kkfkk%fk@f@f:=kk%kk#kkffk%kf%@k#k#fkfk##kkk@k#kkfkk%f%ffff#k%f%kf#fk@k@@kkk%ff%kf#fk@k@@kkk%@#k@kf#f@
+@%fff@k@@k%%kf#fk@k@@kkk%k%f@@ff@fk%f%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%f#fkffk#:=k%kfkff#%kk%kk#kf@#k%f@f%kfkkkk@f#ffffkk@@k#k%%kf#fk@k@@kkk%ffk%@k#k#fkfk##kkk@k#kkfkk%#k@kf#f@
+@k%kkkkkk%#ff@%kkkf@ffkffk@#k@kf#f@%%kf#fk@k@@kkk%@k%kfkkkk@f#ffffkk@@k#k%fkffk#kkkff:=kk%kfkff@%kf%@k#k#fkfk##kkk@k#kkfkk%ff%ffkkk#k@%k%kfkkkk@f#ffffkk@@k#k%fk%@k#k#fkfk##kkk@k#kkfkk%#k@kf#f@
+#f@f%k#fkfk%k%kkkf@ffkffk@#k@kf#f@%#f%@k#k#fkfk##kkk@k#kkfkk%kf@k@ffff:=kkk%kfkkkk@f#ffffkk@@k#k%%@k#k#fkfk##kkk@k#kkfkk%ffk%#f#k#f%ffk@%#fkf%#k@kf#f@
+k@@%kfkfffk#%kk##%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%#%kf#fk@k@@kkk%#f@#kkk@ffk:=kkkf@%kfkkkk@f#ffffkk@@k#k%fkf%@k@k@f%f%kf#fk@k@@kkk%@#k@kf#f@
+ff%kf#fk@k@@kkk%%f@#k@k%@k%kkkf@ffkffk@#k@kf#f@%ff%kfkkkk@f#ffffkk@@k#k%#fffk:=kk%kf#fk@k@@kkk%f@%fkkf@ffk%f%kfkkkk@f#ffffkk@@k#k%kf%kfkkkk@f#ffffkk@@k#k%k@%f@fk%#k@kf#f@
+k@%fff@k@%%#ffffk%k%kkkf@ffkffk@#k@kf#f@%@%kfkkkk@f#ffffkk@@k#k%#%kf#fk@k@@kkk%kkk#fff#:=kk%@f#f%kf%@k#k#fkfk##kkk@k#kkfkk%%kfkkkk@f#ffffkk@@k#k%fkffk@#k@kf#f@
+@f#%kf#fk@k@@kkk%%kfkkkk@f#ffffkk@@k#k%kk%fkk@#k%#%f@f@@f%k@k#kf@f@f:=kkk%kfkkkk@f#ffffkk@@k#k%@ff%k@f#k#k#%%kf#fk@k@@kkk%ffk%@k#k#fkfk##kkk@k#kkfkk%%#f#k#f%#k@kf#f@
+}
+k@@f@kfk@f#k#k() {  
+global
+fff%f@f@#f#k%#%kkf#f#@k@f@f@f#ff@%@k%@k#f#fk@fkk#k#f@%@kf@f#=ff%fkff#f@fk@kff##k@f%k@%f#fff@@kf#kfkk@f@kf#f@%kf%k@ff%k@%f@k@ff%fkkf
+#f%f@fk%ff%kkkkfffk%#f%@kk#f#kkf#f#k@kk%k%fkf#f#kkkkf##kfk%f@kfk=f%f#fk#kf#kfffkkk#k@%@%f@kkff%k%#fffkff#@k@kkk@f%%@kf#ffkf%f%@fk#k@fkk#f#kkfkkf%fk@fkkf
+f%f@kkff%kfk%f#fffkk#kkk#@kfffkfkkfkk%k%@fkfffk@f@#f#fff@kk@k#%kk@ff=#%ffkkf#fk%k%@kf@f#f@kkk@@f%@f%f#fff@@kf#kfkk@f@kf#f@%%@f@f@f@kk@f@fff@@fff%kf#fk#k
+#f%@fkfkkk#ffffk#k#%@k%ffff#k%##f%kfkfkf@k%f%k@kkk#k@fk@kf#fff@#k#f%f@@fff=#k%fff#%k@%@fkfkkk#ffffk#k#%f#k%@fkfffk@f@#f#fff@kk@k#%#fk#k
+}
+kkfk#ff@k@kfk##f() {  
+global
+}
+#kk@ff#kf#fk#k() {  
+global
+#%#ffffk%k%#f@fk##f@kf@k@ffff%k%f#ffkf@k%#%#fkk#kkf@kkk@k@k%%fff#@fk#f@k@k#kkf@fkkkkk%kkf=f%#kf#kf%%@kk@@k%%f@ffk@@kk#kf#fk@k#%%@kk#f#kkf#f#k@kk%k#kfk
+k%kfkff@%%@f@kfk#f#fkfkff@#k%%#f@fkfk##k@kf@k#fk%ff@#k=f%@k#kkkf#%#%f@#k%@%@fk#k@fkk#f#kkfkkf%#%f#@k@fffk@#ff@k@%fk
+f%ffff#k%f%k@fk#kkf%%f#fffkk#kkk#@kfffkfkkfkk%%@f#fk##kk#@k@kf@kf%%k#@ff@fkkffkk@ffkf%@k##kf@=k%k@k#@f#kkkk#fff#%f%@kkk@f#kf@@ff@#fk@ffk@%%kkkkfk%%@f#f%%f#kkkkk@k@kkf@fkk@#ffk%#k##fkf
+#%#fkf%%@fkfkkk#ffffk#k#%%ffff#k%%f#fffkk#kkk#@kfffkfkkfkk%kkfk#=k#%k@ff%f@%fff#@fk#f@k@k#kkf@fkkkkk%#k%f##fkfkkf#k@kkkf@f%#f%kff@f@kfk#@kkf#fkkk@%f
+@f%@kkf#kf@%kkk@@f%#kf#kfkkf#ffkf#ff@k#%%kffffkf@kk@kfk%f@fff@@k@ff##kkk=fff%ffk@k#fff#fffk%fff%#kf@#f#f#kk#f#k#@fk@%%@k#kkkf#%kff#@k
+k%kkkkfk%#kf%@fk#k@fkk#f#kkfkkf%f%@k#ff@#k@kffkffk#kkkff%f@fk%kk@k#f%@#kf@f@f#=ff%@kff#k%f#%kffffkf@kk@kfk%ff%fkf@ff%%k@kkk#k@fk@kf#fff@#k#f%kff#@k
+k%#fkf%@f%#fffkff#@k@kkk@f%#kf@%kff#k##kf#@f#kkf%kf%@f#kfkk#k@k#kf@f@f%@fk#kkk@@f@f=k%@kkfkff#fkffk#%k%fkff#f@fk@kff##k@f%%#ff#f@f@#k#ffk#kfffffff@%%fff@f#fk%%f@#k@k%@kkkf#kff
+k%ffkkk#k@%kff#k%kkkk@kf@kfk#fk%f%k@k@ffk@%f#fff%@k#ff@f@k@fk@f@f%kkfkf#k#kf#k=k#%k##fff%k%kkkk@kf@kfk#fk%k%@kk#f#kkf#f#k@kk%kkkf#kff
+#f@f#k%ffkff@kff#fkkkkfkkk@kf%@fk@ff#%@kkfkff#fkffk#%%kk#kkffk%k@f#kff@f=kf@%#ffffk%%@fk#k@fkk#f#kkfkkf%@%@fkff#@ffkfkff#kfkfk%k%#fffkff#@k@kkk@f%ffkfkff#@fkfk@
+kk%f#@k@fffk@#ff@k@%%kffkk@#k%%@kfkk#%#%@fkff#@ffkfkff#kfkfk%@%@kfkf#k@kkkk#k#fk#%@@ffkk#fk=kf@k@f%#fffkk#fk#@kf#kfk#@f%@ff%kkfkkkff#kkfkk#k#k%fkff#%f@f@#f#k%@fkfk@
+}</code></pre>
+</div>
+
+</div>
+<div id="rightcol" style="width:200px;float:left">
+<div class="container"></div>
+<iframe style="border-width:0px;float:left" src="iFrames/promote.htm" width="100%" height="300px" scrolling="no"></iframe>
+<br/><br/><br/>
+<iframe style="border-width:0px;" src="iFrames/donate_digidon.htm" height="400px" scrolling="no"></iframe>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+v2.14
+-No obfuscation for labels ending with Guiclose, GuiEscape etc.
+
+v2.13
+-SYSVARS bug indication
+
+v2.12
+-Corrected few bugs
+* Warning of 'did not find ' gui labels
+* Invalid non-replacement of vars followed or preceeded by '/'
+
+v2.11
+-Huge documentation revamp
+-Include file can now contain "#include " and "%A_ScriptDir%\" which are ignored
+-Function names between quotes are recognized and obfuscated. 
+Allow for use with A_ThisFunc="" and with Menus that can use functions for exemple with % "FuncName"
+-Functions used in gFunction are recognized and obfuscated
+-[N]GuiClose|Size|... are normally be obfuscated automatically
+-Obfuscator command '$DUMPPOISENED_SECFRAGS_FORCLASSES' renamed to '$DUMPPOISONED_SECFRAGS_FORCLASSES' (i.e. 'poisoned' instead of 'poisened' typo mistake by previous author)
+
+v2.10
+-Possible to obfuscate directly a single file
+-Recognize +Hwnd
+-Gui label functions handling
+-Documentation improvement
+-Slightly better auto-naming
+-Minor improvements
+-MANY NEW EXAMPLES
+
+v2.08
+-Improved continuation section detection
+-OBFUSCATED VARIABLES IN QUOTES ARE RECOGNIZED !
+
+v2.07
+-corrected multiple bugs
+
+v2.06
+-corrected multiple small invalid replacements
+-updated documentation to new website
+
+v2.05
+-bug that var indicating global func was not reset for labels
+-bug that in some cases there could be invalid glopartial replacements after obfuscation of sysfuncs for example due to %'s. Therefore Globpartial obf now happens before the others
+-improved skipping translation of vars followed by : but not =
+
+V2.04
+-bug that include file was not detected
+
+V2.03
+-Restructured some code
+-Modified ihidestr functions to hidestr functions
+-Modified documentation accordingly
+
+V2.02
+-Added ;$OBFUSCATOR: $ALLFRAGS_DUMPALL: command comment to do all dumps at once
+-Changed DEFPROPERTIESVARS to DEFSYSPROPERTIESVARS type
+-Added DEFSYSMETHODVARS type
+-Disabled unhandled obf var auto creation : METHODS PROPERTIES etc.
+-Fix to correct var/prop being incorrectly replaced when assigning prop with {prop:}. But no spaces between prop and ":" allowed
+
+V2.01
+-Auto-button selection for faster obfuscation tests
+-Auto-file naming for faster obfuscation tests
+-Correction of obfuscation bugs
+-Added DEFSYSVARS type for AHK bult-in variables
+-Corrected bug of stalling at beginning of obf processed
+-other improvements and bug corrections
+
+*************************************************************************************************
+UPDATES BY DIGIDON VERSION 2.0 : SEE MORE COMPLETE LIST IN DOCUMENTATION WHAT'S NEW AND COMMENTS
+*************************************************************************************************
+**NOT NEED TO DRAMATICALLY CHOOSE between low security straight obfuscation and great dynamic obfuscation
+You can now do both and increase the dynamic part over time :
+Dynamic obfuscation works only with assume-global functions. But before every non-global function with some calls to other functions or obfuscated variables would lead to fatal errors because dynamic names would be used.
+Now the Obfuscator recognizes non-global functions and will then only use straight obfuscation automatically
+
+**NO NEED TO DECLARE VARS MULTIPLE TIME TO THE OBFUSCATOR
+It is enough to declare all your used vars to the obfuscator once at the beginning, whether there are locals, globals, static or even objects, it does not matter and can be done only once! You can still define the local vars to the obfuscator for each function the old way to have maybe specific names and parameters but this is not necessary at all.
+
+**Better detection of all types : Transmap shows clearly all that have been recognized and in which file
+-Functions
+ with Parameters and Nested labels
+-Labels & Hotkeys
+ with Nested Labels and hotkeys
+-Classes
+  with Nested Classes, Methods and Parameters
+-Context conditions #if ....
+  with Nested Labels and hotkeys
+
+**Obfuscator Include file is more flexible now with disabled commented lines, folder paths and relative paths
+
+**Better interface to show progress in % and the file being processed !
+
+**Improved obf of dynamic vVars and gLables
+You just need to have these followed or preceded by " : ex Gui, add, ... , % "vMyVar " "gMyLabel ..... .... ...."
+
+**New very useful commands for Obfuscators
+;$OBFUSCATOR: $STOP_OBF: && ;$OBFUSCATOR: $RESUME_OBF:  
+Can be used to stop / resume obfuscation for some blocks.
+If stop it will still replace Ihidestring calls and previous obfuscated functions / labels calls but not variables and parameters
+;$OBFUSCATOR: $STRAIGHT: && ;$OBFUSCATOR: $DYNAMIC:
+Can be used to change the obfuscation mode of large blocks if Dynamic is causing a problem but I don't think it should happen now.
+;$OBFUSCATOR: $START_BLOCK: && ;$OBFUSCATOR: $END_BLOCK:
+ ! Can be used to define quickly some code blocks that will stay together when the SCRAMBLING option is used !
+;$OBFUSCATOR: $START_COMMENT: && ;$OBFUSCATOR: $END_COMMENT:
+Can be used to preserve some comment blocks even if the option to remove all comments is used !
+
+**Much better Comments Blank lines and Spaces deletion functionality
+Only preserve in-line comments containing potentially dangerous chars like ()[]...
+Delete all other inline comments
+Take in account commentchar changes !
+
+**BETTER SCRAMBLING ABILITY
+Scramble all your code while preserving some blocks together, and without loosing code !
+
+**COMPLEX DYNAMIC VARS WITH PARTS CAN NOW BE OBFUSCATED !
+Vars like Space%A_Index%Var%B_Index%_Path can have each part (Space,Var,_Path) be obfuscated
+They Some constraints : if you have set these parts you can for example not call %What%%A_Index%Var%B_Index%_Path if you have set What:="Space" before as the name Space has been obfed. If you use this then just don't define Space as VarPart and call it always %What%%A_Index%Var%B_Index%_Path with What:="Space" and What  declared as globalvar to the obfuscator if you want it to be obfed fully every time.
+
+**OBJECTS CAN NOW BE OBFUSCATED !
+-They just have to be declared as global var in the obfuscator declaration
+
+**PROPERTIES AND METHOD CALLS CAN NOW BE OBFUSCATED !
+You should list them with the new
+;$OBFUSCATOR: $DEFPROPERTIES:
+and call along with others DUMPs
+;$OBFUSCATOR: $PROPERTIESFRAGS_DUMPALL: 
+It is only their uses which will be ofuscated. Just like System functions, their original names will not be changed.
+But property definitions like 
+Obj={ Prop:"test"} can look like Obj={(k#fkk#f@ kff@f@fkf@kff@ kfkffff@ fkf@f@ff k#fffkfkf@f@f@ f@k#fffk):"test"}
+Property Uses like
+Obj.Prop can look like Obj[k#fkk#f@ kff@f@fkf@kff@ kfkffff@ fkf@f@ff k#fffkfkf@f@f@ f@k#fffk]
+THANKS TO THIS, METHODS CAN ALSO BE OBFUSCATED THIS WAY
+Obj.Method(param) can look like Obj[k#fkk#f@ k#fffkfkf@f@f@ f@k#fffk](Param)
+Of course, the Obj itself, the method parameters and string values can be obfuscated as well so that the whole thing will look like garbage :)
+
+**CONTEXT CONDITIONS #IF... ARE NOW PROPERLY HANDLED AND OBFUSCATED
+
+**NESTED LABELS ARE NOW PROPERLY RECOGNIZED AND OBFUSCATED
+
+**BUG CORRECTIONS:
+No dynamic replacement bugs when your var is being declared in a function with global, static or local keyword
+Recognition even when inline comments
+Preserve correctly all comments sections
+Preserve and obfuscate all #if conditions
+Does not obfuscate vars not surrounded by %% in continuation section
+Understands := in parameters
+Recognize Context conditions #if ...
+Recognize Classes
+External commands such as #CommentFlag will be preserve even at the end of a file, even when scrambling
+
+AND MUCH MORE !! (Sorry I did this log after from memory)

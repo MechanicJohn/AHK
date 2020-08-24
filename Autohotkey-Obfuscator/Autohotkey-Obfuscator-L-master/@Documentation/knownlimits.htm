@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Known limitations with this Autohotkey Script Obfuscator</title>
+<meta name="Description" content="Some gotchas to watch out for when you are obfuscating your Autohotkey program.">
+
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+
+<style type="text/css">
+</style>
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+</head>
+<body>
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>Known Limitations with this Autohotkey Script Obfuscator</h1>
+
+<div><span style="font-size: 16px;"><span style="color: rgb(222, 87, 0);"><b>**UNFORTUNATELY still some known LIMITATIONS:</b></span></span></div>
+<div><u><span style="font-size: 15px;">But much less than before !</span></u></div>
+<div><h3>INCLUDES ARE NOT PROCESSED AUTOMATICALLY</h3></b>
+You have to provide to the Obfuscator a special text file containing all you includes that the Obfuscator will process.
+<br/>The includes are easier to do now in this file but I didn't have time to work on this limitation to see if we could process AHK includes directly. I think it might be a bit more complex than it seems because there are special types of includes but maybe at least the standard ones could be processed automatically.</div>
+
+<div><b><h3>FUNCTION AND LABEL MUST END IN COLUMN 1</h3></b>
+Should be possible to simply count the number of closing braces as AHK probably does. Haven't have the time to study it. </div>
+
+<div><b><h3>SOME DETECTION IS MADE BASE ON PREVIOUS OR NEXT CHARS INSTEAD OF REGEX</h3></b>
+Already adapted many parts to recognize no matter how much space but there might still be some cases that should be adapted.</div>
+
+<div><b><h3>TEXT IN MSGBOX OR GUI CONTAINING VAR NAMES</h3></b> will still be obfuscated improperly.
+That might be solved but needs some proper work to detect if the call if just in param, after % &quot; &quot; or used actually as a variable. No proper time for it and minor case for now.</div>
+
+<div><b><h3>! CLASSES and METHODS ARE STILL NOT OBFUSCATED !</h3></b>
+THEY MIGHT BE IN THE FUTURE BUT THAT REQUIRES CAREFUL WORK because of complex Class design and possible uses.
+<br/>Classes were already made recognizable. But the complex nested aspects will be quite difficult to handle. Internal methods should not be obfuscated (__New etc.) and all possible calls should be taken into account so that every call is obfuscated properly, otherwise it won't work. Therefore this has been delayed. NEVERTHELESS IT IS POSSIBLE TO OBFUSCATE THEIR USE by creating objects based on class, obfuscate the objects as global vars, and obfuscate important methods.</div>
+
+<div><b><h3>GUI INTERNAL LABELS (CLOSE, SIZE,CONTEXTMENU,...) SHOULD STILL BE SURROUNDED BY SPECIAL COMMANDS</h3></b>
+That might be solved quite easily by modifying the parameter internally for example each time the label starts with &quot;XXGui&quot; &quot;XGui&quot; or end by the standard &quot;Close&quot; etc. Wasn't a priority
+<br/>EDIT: In 2.11: [N]GuiClose|Size|... should be not obfuscated automatically</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

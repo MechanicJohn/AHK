@@ -1,0 +1,38 @@
+
+
+	OBFUSCATOR TRANSLATION TABLE CREATION MESSAGES FILE
+	Date: 22:38 lundi 19 mars 2018
+
+	#FILE IN WHICH THE TRANSLATION COMMANDS WERE FOUND:
+	
+
+
+#FOUND: DEFGLOBVARS funcname: globalvar1
+    Created obfuscated name: k@fk@kf@
+
+#FOUND: DEFGLOBVARS funcname: globalvar2
+    Created obfuscated name: fkffk#kf
+
+#FOUND: DEFFUNCS funcname: testfunction
+    Created obfuscated name: k#k@f#fkf#@kff#k
+
+#FOUND: DEFPARAMS funcname: paramvar
+    Created obfuscated name: f@fff#f@#f#fkf
+
+#FOUND: DEFLOSVARS funcname: localvar1
+    Created obfuscated name: @k@k#ff@#f#f@kf@k@k@@k
+
+#FOUND: DEFLOSVARS funcname: localvar2
+    Created obfuscated name: kfkk@fkkk#ff#f
+
+#FOUND: DEFFUNCS funcname: obf_dumpcommonobjfrags
+    Created obfuscated name: k#@ffk#f@f#k@f@k
+
+#FOUND: DEFFUNCS funcname: obf_dumpunclassed
+    Created obfuscated name: f@k#ffff@fkk@f
+
+#FOUND: DEFFUNCS funcname: obf_dumpunsecclasses
+    Created obfuscated name: f@@k@kkfkf#fff
+
+#FOUND: DEFFUNCS funcname: obf_dumpall
+    Created obfuscated name: #ffk@fk@k##f#kkk

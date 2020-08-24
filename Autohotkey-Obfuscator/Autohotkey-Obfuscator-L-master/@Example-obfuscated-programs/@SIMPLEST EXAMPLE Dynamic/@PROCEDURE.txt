@@ -1,0 +1,23 @@
+We had our original script called "Simplest_Example - Original.ahk"
+
+1/ We included some Obfuscator commands into the script - so the obfuscator knows what to do - inside "Simplest_Example.ahk" file.
+Normally you don't need to create a copy: just put the comment commands inside.
+
+2/ We created a text file called "Simplest_Example_INCLUDEFILE.txt"
+We put inside the filename of all the files we want to obfuscate:
+In our case only Simplest_Example.ahk. 
+Otherwise it would contain all includes as well.
+
+3/ We started the obfuscator and asked to Create a Translation MAP using our "Simplest_Example_INCLUDEFILE.txt" file
+
+The Obfuscator created a debuging files : "Simplest_Example_TransMAP.txt" in which you can see that your functions and commands were detected correctly
+
+4/ We then asked the obfuscator to Obfuscate Source Code
+
+The Obfuscator createdanother debuging files :
+"Simplest_Example_TransMAP_RMESS.txt" which contains all obfuscated names (useful for debugging)
+
+The Obfuscator THEN CREATED OUR OBSFUSCATED SCRIPT:
+"Simplest_Example_obfuscated.ahk"
+
+5/ DONE ! We can run "Simplest_Example_obfuscated.ahk" and the obfuscated code is running just as the original !

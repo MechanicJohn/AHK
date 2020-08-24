@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Obfuscating all your variables, objects, properties, methods, ...</title>
+<meta name="Description" content="A couple of simple steps are necessary to prepare your Autohotkey include files for this Autohotkey Obfuscator.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1><a name="subj"></a>Obfuscating all your variables, objects, properties, methods, ...</h1>
+<div>
+This program has the ability to obfuscate your variables anywhere they are used. If <span class="highlight">Dynamic Obfuscation</span> is being used then all the usages of variables found will be replaced with obfuscated strings that contain <code>%'s</code>, otherwise their replacements will have no <code>%'s</code>. <b>BUT Variables Are NOT Automatically Obfuscated</b>
+</br>You need to declare all variables, objects, properties and methods you would like to obfuscate to the obfuscator using special commands.
+</br><b>DO NOT FORGET THAT THE <a href="mandatdyndumps.htm#">USE OF DUMPS WILL ALSO BE NECESSARY</a> FOR DYNAMIC OBFUSCATION!</b>
+</div>
+
+</br>
+<h2><a name="decl_glob"></a>Use the <span class="highlight">DEFGLOBVARS</span> to obfuscate all your variables and objects</h2>
+<div>
+In order to have them obfuscated, you specify their names in the define global variables command comment:
+
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DEFGLOBVARS: (list of global variable names)</font></pre>
+
+Use the <span class="highlight">DEFGLOBVARS</span> command as well for your Objects
+
+<br><br>It does not matter where you put these statements in the source code. They do not need to be put before your usage of the global variables or in the section that the variables are used in.
+<br><br>HOWEVER FOR CLARITY AND MAINTAINABILITY 
+<br><b>IT IS RECOMMANDED THAT YOU DECLARE ALL YOUR VARIABLES IN YOUR MAIN SCRIPT AT THE VERY BEGINNING 
+<br>AND SPLIT THE DECLARATION IN SEVERAL LINES WITH COMMENTS</b>
+<br>EXEMPLE :
+<pre><code><br>;********************************
+<br>;			SUPER GLOBALS
+<br>;********************************
+<br>;$OBFUSCATOR: $DEFGLOBVARS: MySuperglob1,MySuperglob2,MySuperglob3
+<br>
+<br>
+<br>;********************************
+<br>;			V VARS
+<br>;********************************
+<br>;$OBFUSCATOR: $DEFGLOBVARS: RN_Pic_Close,RN_NameReduced,RN_NTBKReduced,BTSTB,BTSTI,BTSTU
+<br>
+<br>
+<br>;********************************
+<br>;		OBJECTS VARS
+<br>;********************************
+<br>;$OBFUSCATOR: $DEFGLOBVARS: SleepParametersD,glb_Default_SleepParm
+<br>
+<br>
+<br>;********************************
+<br>;		REAL GLOBALS VARS
+<br>;********************************
+<br>;$OBFUSCATOR: $DEFGLOBVARS:EverFastStandard_Hotkey,GestureEnable
+<br>
+<br>;********************************
+<br>;	  FREQUENT LOCAL VARS
+<br>;********************************
+<br>;$OBFUSCATOR: $DEFGLOBVARS: found,FoundPos,NewStr</code></pre>
+</div>
+
+<h2><a name="decl_los"></a>IF YOU WANT You can declare local vars separately in each function with DEFLOSVARS</h2>
+<div>If you find it simplier to maintain you can also declare local vars separately in each function.
+</br>For that just use:
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DEFLOSVARS: (list of global variable names)</font></pre>
+
+In that case these variables will be separately obfuscated and only in this function.
+<br>To avoid workload and repetition, this is not recommended. It is recommended to declare them using the above-mentioned and valid-for-all <span class="highlight">DEFGLOBVARS</span> command.
+</div>
+
+<h2><a name="decl_partvars"></a>Use the DEFGLOBPARTIALVARS to obfuscate all your frequent partial vars</h2>
+<div>
+Vars like <code>Space%A_Index%Var%B_Index%_Path</code> can have each part (<code>Space,Var,_Path</code>) be obfuscated
+</br>For that just use:
+
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DEFGLOBPARTIALVARS: (list of global variable names)</font></pre>
+
+<font color="red">They are some constraints : </font>When you declare a <span class="highlight">PARTIAL VAR</span> to be obfuscated, you can then not replace anywhere this part by a string variable containing the original part name.
+<pre><font color="purple">For example if you have set <code>Space</code> as <span class="highlight">PARTIAL VAR</span> to use for example in <code>Space%A_Index%Var%B_Index%_Path</code>, then you CANNOT call <code>%What%%A_Index%Var%B_Index%_Path</code> with <code>What:="Space"</code> before as the part-var <code>Space</code> has been obfuscated and would not corresponds to this name anymore. </font></pre>
+</br>If you use these string variable and still want it to be obfuscated then just don't define <code>Space</code> as <span class="highlight">PARTIAL VAR</span> and call it always with string variables like <code>%What%%A_Index%Var%B_Index%_Path</code> with <code>What:="Space"</code> and declare <code>What</code> as <span class="highlight">GLOBVAR</span> to the Obfuscator.
+</div>
+
+<h2><a name="decl_sysproperties"></a>Use the DEFSYSPROPERTIES to obfuscate your properties</h2>
+<div>
+<font color="red">Obfuscation will only be applied for these elements in dynamic mode</font>
+<br/>You should list them with the new:
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DEFPROPERTIES: (list of property names)</font></pre>
+
+Because this functionality is still new, it is only the <span class="highlight">property calls</span> which will be obfuscated. Just like System functions, their original names will not be changed.
+</br></br>But still, <span class="highlight">property definitions</span> like <code>Obj={ Prop:"test"}</code> can look like <code>Obj={(k#fkk#f@ kff@f@fkf@kff@ kfkffff@ fkf@f@ff k#fffkfkf@f@f@ f@k#fffk):"test"}</code>
+</br></br><span class="highlight">Property Usess</span> like <code>Obj.Prop </code>can look like <code>Obj[k#fkk#f@ kff@f@fkf@kff@ kfkffff@ fkf@f@ff k#fffkfkf@f@f@ f@k#fffk]</code>
+</br></br>Of course, the <code>Obj</code> itself, the <code>property parameters</code> and <code>string values</code> can be obfuscated as well so that the whole thing will look obfuscated :)
+</div>
+
+<h2><a name="decl_sysmethods"></a>Use the DEFSYSMETHODS to obfuscate your methods</h2>
+<div>
+<font color="red">Obfuscation will only be applied for these elements in dynamic mode</font>
+You should list them with the new:
+
+</br><pre class="language-"><font color="brown">;$OBFUSCATOR: $DEFSYSMETHODS: (list of method names)</font></pre>
+
+Because this functionality is still new, it is only the <span class="highlight">method calls</span> which will be ofuscated. Just like System functions, their original names will not be changed.
+</br></br>But still it will be quite effective to obfuscate the <span class="highlight">method calls</span> :
+</br><code>Obj.Method(param)</code> can look like <code>Obj[k#fkk#f@ k#fffkfkf@f@f@ f@k#fffk](Param)</code>
+</br></br>Of course, the <code>Obj</code> itself, the <code>method parameters</code> and <code>string values</code> can be obfuscated as well so that the whole thing will look obfuscated :)
+</div>
+
+<h2><a name="decl_sysvar"></a>Use the DEFSYSVARS to obfuscate your properties and methods</h2>
+<div>
+You should list them with the new:
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DEFSYSVARS: (list of ahk built-in variables)</font></pre>
+
+Due to the variables being built-in is only the <span class="highlight">variable calls</span> which will be obfuscated. Just like System functions, their original names will not and cannot be changed.
+</br>Also please note that <b>All system variables surrounded by <code>%'s</code> wont and cannot be obfuscated.</b> Nevertheless All other uses in expressions will be obfuscated.
+</br>This Obfuscation is much stronger in <span class="highlight">dynamic mode</span> as in <span class="highlight">straight mode</span> the name will be visible, only split by some empty vars.
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Obfuscator rules - GUI rules</title></title>
+<meta name="Description" content="This program has the ability to obfuscate special objects in Autohotkey GUI controls including items starting with a V (variable) and a G (gosub on click).">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+<h1>Obfuscation of Special Script Objects in Autohotkey Gui Controls</h1>
+<div>
+This program can replace special uses of objects used in <span class="highlight">Gui controls</span>.
+</div>
+
+<h2><a name="guigosub"></a>Gosub Labels/Functions in Gui Controls that Start with a 'G'</h2>
+<div>
+This program can find and replace occurrences of labels/functions found in <span class="highlight">Gui controls</span> that start with a <code>"G"</code> to signify gosub on click: 
+
+<pre><code>Gui, add, text, Gclickhandler, hello world</code></pre>
+
+<font color="red">[added DigiDon]&nbsp;</font>
+For dynamic <span class="highlight">gLabel</span> in expressions you need to have a quote character <code>"</code> just before or just after the <span class="highlight">Glabel</span>.
+
+
+<pre><code>Gui, add, text, % "Glabel " x " XCoord", hello world</code></pre>
+
+No other special steps are necessary by you for this. An invalid replacement could occur if you have 2 labels/functions that are the same except one starts with a <code>"G"</code>: 
+
+<pre><code>lob:
+[...]
+<br>glob:</code></pre>
+<pre><code>lob()
+[...]
+<br>glob()</code></pre>
+</div>
+
+<h2><a name="guiglob"></a>Global Variables in Gui Controls that Start with a "V"</h2>
+<div>
+This Obfuscator can replace global variables starting with a <code>"V"</code> that are found in GUI controls :
+
+<pre><code>Gui, add, text, Vmyglobvar, hello world</code></pre>
+
+<font color="red">[added DigiDon]&nbsp;</font>
+For <span class="highlight">Vvars</span> in expressions you need to have a quote character <code>"</code> just before or just after the <span class="highlight">Vvar</span>.
+
+<pre><code>Gui, add, text, % "Vmyglobvar " x " XCoord", hello world</code></pre>
+
+No other extra work is necessary by you for this, just do the normal things required for <a href="globalvariables.htm">obfuscating global variables</a>. Only <span class="highlight">global variables</span> found in <span class="highlight">Gui controls</span> will be replaced at this time, <span class="highlight">static and local variables</span> starting with a <code>"G"</code> are not supported.
+</div>
+
+<h2>Variables Surrounded with %'s in Autohotkey GUI Controls</h2>
+<div>
+Variables surrounded with <code>"%"</code> in controls will be replaced, nothing extra by you needs to be done.
+
+<pre><code>Gui, add, text, %controlwidth%,
+<br>(join`s
+<br>bla bla bla....%saythis%
+<br>)</code></pre>
+</div>
+
+<h2><a name="guilabel"></a>The GUI +LabelPrefix Command</h2>
+<div>
+If you are using the <code>GUI, +LabelPrefix</code> Command to set a handler for the closing of a window, you will have to apply some special steps to avoid errors.
+
+<br><br>Use the <span class="highlight">DEFGUILAB</span> command comment anywhere in your source code and add the name of <span class="highlight">GUI +Label:</span>
+<pre><font color="purple">e.g. <code>configwin</code> if this was <code>GUI +Labelconfigwin</code></font></pre>
+ 
+
+<font color="green"><b>NEW COMMAND</b></font>
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DEFGUILAB: (list of GUI custom label names)</font></pre>
+<font color="red">OLD [modified DigiDon]</font>
+<pre class="language-"><font color="red">;$OBFUSCATOR: $DEFCLOSEGUILAB: (list of GUI custom label names)</font></pre>
+
+The gui statement will come out looking like this:
+<pre><code>Gui, +Labelf@kfk#fffffffkk#fkk#kffk</code></pre>
+
+<h3>Turn off Obfuscation for GUI Labels</h2>
+Turn off normal label obfuscation encoding for these actual GUI label sections. You do this by surrounding these sections of code with the <span class="highlight">CHANGE_DEFAULTS</span> command and the <span class="highlight">RESTORE_DEFAULTS</span> command:
+
+<pre><code>;$OBFUSCATOR: $LABELS_CHANGE_DEFAULTS: -1
+configwinClose:
+<br>configwinEscape:
+<br> ;program statements here
+<br>RETURN
+
+<br><br>configwinContextmenu:
+<br> ;program statements here
+<br>RETURN
+<br><br>configwinDropFiles:
+<br> ;program statements here
+<br>RETURN
+<br><br>configwinSize:
+<br> ;program statements here
+<br>RETURN
+<br>;$OBFUSCATOR: $LABELS_RESTORE_DEFAULTS:</code></pre>
+
+The <code>-1</code> in the <span class="highlight">CHANGE_DEFAULTS</span> command turns off obfuscation for label objects that follow and the restore defaults command restores the obfuscation defaults to whatever they previously were.
+
+</br>Both the label header and the <code>GUI, +LabelPrefix</code> statement will be obfuscated.
+
+<br><br>The label headers will come out looking like this, with the <code>CLOSE</code>, <code>ESCAPE</code>, <code>DROPFILES</code>, etc. part still present:
+
+<pre><code>f@kfk#fffffffkk#fkk#kffkClose:
+<br>f@kfk#fffffffkk#fkk#kffkEscape:</code></pre>
+
+<h3>Turn off Obfuscation for GUI Functions</h2>
+Turn off normal label obfuscation encoding for these actual GUI function sections. You do this by surrounding these sections of code with the <span class="highlight">CHANGE_DEFAULTS</span> command and the <span class="highlight">RESTORE_DEFAULTS</span> command:
+
+<pre><code>;$OBFUSCATOR: $FUNCTIONS_CHANGE_DEFAULTS: -1
+configwinClose(...) {
+<br> ;program statements here
+<br>}
+<br>
+<br>configwinEscape(...) {
+<br> ;program statements here
+<br>}
+<br><br>configwinContextmenu(...) {
+<br> ;program statements here
+<br>}
+<br><br>configwinDropFiles(...) {
+<br> ;program statements here
+<br>}
+<br><br>configwinSize(...) {
+<br> ;program statements here
+<br>}
+;$OBFUSCATOR: $FUNCTIONS_RESTORE_DEFAULTS:</code></pre>
+
+The <code>-1</code> in the <span class="highlight">CHANGE_DEFAULTS</span> command turns off obfuscation for function objects that follow and the restore defaults command restores the obfuscation defaults to whatever they previously were.
+
+</br>Both the label header and the <code>GUI, +LabelPrefix</code> statement will be obfuscated
+
+<br><br>The functions headers will come out looking like this, with the <code>CLOSE</code>, <code>ESCAPE</code>, <code>DROPFILES</code>, etc. part still present:
+
+<pre><code>f@kfk#fffffffkk#fkk#kffkClose(...)
+<br>f@kfk#fffffffkk#fkk#kffkEscape(...)</code></pre>
+
+</div>
+ 
+</div>
+
+<div id="rightcol" style="width:200px;float:left">
+
+</div>
+
+</div>
+
+</body>
+</html>

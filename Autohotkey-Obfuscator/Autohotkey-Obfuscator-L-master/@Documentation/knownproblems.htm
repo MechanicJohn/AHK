@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Known Issues with this Autohotkey Script Obfuscator</title>
+<meta name="Description" content="Some gotchas to watch out for when you are obfuscating your Autohotkey program.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- ;Put class in body -->
+<!-- <body class="language-autohotkey"> -->
+<!-- COMMAND IN BROWN -->
+<!-- <pre class="language-"><font color="brown">OBFUSCATOR</font></pre> -->
+<!-- ;EXAMPLE IN BLUE -->
+<!-- </br><pre class="language-"><font color="blue">EXAMPLE</font></pre> -->
+<!-- ;LONG EXAMPLE IN PURPLE + CODE -->
+<!-- <pre><font color="purple">TEXT <code>CODE</code></font></pre> -->
+<!-- ;CODE -->
+<!-- <pre><code>CODE</code></pre> -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<!-- ***************************** -->
+<!-- JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+<!-- !!! TO BE IMPROVED !!!! -->
+<iframe style="border-width:0px;float:left" src="iFrames/topnote-toimprove.htm" width="100%" height="30px" scrolling="no"/></iframe>
+<h1>Known Issues with this Autohotkey Script Obfuscator</h1>
+
+<div>
+I decided to open source this Obfuscator with a few small problems still present. Mostly the program runs very well and is stable and fast. Of the problems below, the first one is the one that gave me the most frequent annoyance but I could not come up with an easy solution when the program was being developed. 
+</div>
+
+<h2>Words in GUI Text/MsgBox in Script Are Being Replaced by Obfuscations</h2>
+<h3>Variable names same as Words</h3>
+<div>
+You can sometimes have the shocking problem where some of the words on the interface of a GUI box are replaced by an obfuscated string. A word like "total" found in the text of some GUI control might be replaced with a large string made up entirely of characters like <code>"fk@#%"</code>. When your user brings up that GUI window, it will show a very ugly obfuscated string on the interface! 
+
+<br><br>This is an Obfuscator invalid replacement problem. It can happen when the text in a control contains a word that is identical to some variable name that is being obfuscated in your program. For instance, you might use the word "total" in your GUI text and it could be a variable name as well causing invalid replacements of that word in GUI text. This is most likely to happen in <code>Gui, add</code> statements and <code>msgbox</code> statements but it can also happen anyplace strings can be found including assignment statements, expressions, and passing literal strings to functions.
+
+<br><br>At the current time there is no command in the Obfuscator to automatically fix this problem. I discussed how I think the Obfuscator should be modified in order to reduce this problem but first I will explain the workarounds to this problem you can use right now. 
+
+<br><br>The first workaround you can use is to change the name of the variable that is being invalidly replaced. If a variable name is an actual whole word and that word just happens to also be used a lot on your Gui interfaces, this option might require less work.
+
+<br><br>The second workaround is to put a legal variable character before or after the word that is being invalidly replaced in your GUI text. This means that you add an extra character before or after the item that is being replaced in your text. It would have to be a character that is legal as an Autohotkey variable including <code>a-z</code>, <code>0-9</code>, or one of the legal special characters: <code>"#_@$?"</code>. So if the word total is being invalidly replaced, you could start it with an <code>@</code>: <code>@total</code> or an underscore : <code>_total</code>. I know, kinda ugly, but it is what it is right now.
+</div>
+
+<h2>Using Single Letter Object Names Can Cause Invalid Obfuscator Replacements</h2>
+<div>
+If you use single letter object names for stuff like parameters or functions they can fool the Obfuscator into producing invalid obfuscated code. The single letters most likely to bring trouble are the letters I use to obfuscate stuff, the <code>"f"</code> and the <code>"k"</code>. If a problem is caused then the compilation of the obfuscated program will fail. Check the line the error is reported on to see if you have any code around there that has a single character object name. If the error occurs, it will not re-occur every time you re-obfuscate the program because there is always a random element to the obfuscation.
+</div>
+
+<h2>The Obfuscator Creates an Object Name That is Too Big</h2>
+<div>
+<font color="brown">Autohotkey limits variable names to 253 characters</font>. Because Dynamic Obfuscator can insert multiple security fragments surrounded by percents into an obfuscated object name, the object name can sometimes exceed 253 characters. In most cases you will not even be aware that it happened because the Obfuscator is set to automatically roll back the insertion of the last security fragment that made it go over.
+
+<br><br>In some cases, however, an error of this type can still slip through to the code output by the Obfuscator. When it does, the program will complain on start up that some line number does not contain a recognized action. Just try re-obfuscating your script.
+
+<br><br>If you are using dynamic obfuscation instead of straight obfuscation and you set the Obfuscator to create large obfuscated object name strings, this will become more likely to happen. In <span class="highlight">dynamic obfuscation</span>, you don"t really want to go beyond 30 characters for obfuscation strings because security fragments will be inserted into them when calls to them are encoded, making them bigger.
+
+<br><br>If you are using straight obfuscation then you need not be concerned about this at all and you can in fact use obfuscation strings right up to the 253 character limit imposed by Autohotkey.
+</div>
+
+<h2>A Label Name Oddity Caused by GUI Statement Syntax</h2>
+<div>
+If you have a label and then another label is named the same thing except the second contains a <code>"G"</code> in front of it, an invalid Obfuscator replacement could occur. An example of this would be a label named <code>"lob"</code> and another label named <code>"glob"</code>. The reason this can cause a problem is because the format <code>"Glabelname"</code> is used inside GUI statements to wire a <code>gosub label</code> to the click event for the control. So if I find a <code>Glob</code> tag inside the options of a GUI statement, it is a reference to the <code>"lob"</code> label, not the  <code>"glob"</code> label. 
+
+<br><br>This Obfuscator can replace <code>"Glabelname"</code> style tags found in GUI statements with "Gobfuscatedlabelname" tags. The <code>"G"</code> will remain but the label name will be replaced by the obfuscated label name. Because of the special use of the letter <code>"G"</code> with labels in controls, having 2 different labels named <code>"lob"</code> and <code>"glob"</code> might cause an invalid Obfuscator replacement.
+</div>
+
+<h2>A Global Variable Name Oddity Caused by GUI Statement Syntax</h2>
+<div>
+If you have a global variable and then another global variable is named the same thing except the second contains a <code>"V"</code> in front of it, an invalid Obfuscator replacement could occur. An example of this would be a variable named <code>"lad"</code> and another variable named <code>"vlad"</code>. The reason this can cause a problem is because the format <code>"Vvarname"</code> is used inside GUI statements to associate a variable with a control. So if I find a <code>"vlad"</code> tag inside the options of a GUI statement, it is a reference to the <code>"lad"</code> variable, not the <code>"vlad"</code> variable. 
+
+<br><br>This Obfuscator can replace <code>"Vvarname"</code> style tags found in GUI statements with "Vobfuscatedvarname" tags. Only global variables found in this form are replaced. The <code>"V"</code> will remain but the variable name will be replaced by an obfuscated variable name. Because of the special use of the letter <code>"V"</code> with labels in controls, having 2 different labels named <code>"lad"</code> and <code>"vlad"</code> might cause an invalid Obfuscator replacement.
+</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

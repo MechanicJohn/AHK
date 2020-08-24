@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>User Manual for Free Autohotkey Script Obfuscator</title>
+<meta name="Description" content="Obfuscate Your Autohotkey scripts with this free and open source application written in Autohotkey. Output example: k%k#k#fkfkffk#f%@f@%#fkkff@kffkfkf%#f()">
+
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+
+<style type="text/css">
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/myscripts.js"></script> 
+</head>
+<body>
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>User Manual for Free Autohotkey Script Obfuscator</h1>
+
+<div class="indexwrapdoc">
+<h2>GENERAL OBFUSCATION PROCESS</h2>
+<a href="obfuscationprocess.htm">The Obfuscation Process for Autohotkey Scripts</a></br>
+<a class="indentindex">Prepare Your Source Code</a></br>
+<a class="indentindex">Straight Obfuscation Steps</a></br>
+<a class="indentindex">Dynamic Obfuscation Steps</a></br>
+<a class="indentindex">Run the Create Translations Map Function</a></br>
+<a class="indentindex">Run the Obfuscate Function</a></br>
+<a class="indentindex">Debugging</a></br>
+</br>
+<h2>OBFUSCATION PREPARATION AND RULES</h2>
+<a href="commandcomments.htm">Command Comments Rule</a></br>
+</br>
+<a href="obfmode.htm">Obfuscation Mode Commands</a></br>
+</br>
+<a href="autoexec.htm">End autoexecute Rule</a></br>
+</br>
+<a href="mandatdyndumps.htm">Dynamic mandatory dumps comment commands</a></br>
+</br>
+<a href="includefiles.htm">Include Files Rule</a></br>
+<a class="indentindex">Move Your '#include &lt;file&gt;' Statements to the Beginning or End of Your Script Files</a></br>
+<a class="indentindex">Prepare an Include Files Map</a></br>
+</br>
+<a href="functionlabel_rule.htm">Functions and Labels rule</a></br>
+<a class="indentindex">Prepare Function Sections</a></br>
+<a class="indentindex">Function names used without "()"</a></br>
+<a class="indentindex">Prepare Label Sections</a></br>
+<a class="indentindex">Nested Label Headers Inside Other Label Sections and Functions</a></br>
+<a class="indentindex">Special Rule For Labels Referred to in the GUI +LabelPrefix Statement</a></br>
+</br>
+<a href="guicontrols.htm">Gui Controls and labels rule</a></br>
+<a class="indentindex">Gosub Labels in Gui Controls that Start with a 'G'</a></br>
+<a class="indentindex">Global Variables in GUI Controls that Start with a 'V'</a></br>
+<a class="indentindex">The GUI +LabelPrefix Clause</a></br>
+</br>
+<h2>OBFUSCATION FUNCTIONALITIES</h2>
+<a href="funcandlbl_autoobf.htm">Obfuscation of function & label names, and parameters is automatic</a></br>
+</br>
+<a href="declareall.htm">Obfuscating all your variables, objects, properties, methods, ...</a></br>
+<a class="indentindex">Use the DEFGLOBVARS to obfuscate all your variables and objects</a></br>
+<a class="indentindex">Use optionally DEFLOSVARS to obfuscate individually your local/static variables</a></br>
+<a class="indentindex">Use the DEFGLOBPARTIALVARS to obfuscate all your frequent partial vars</a></br>
+<a class="indentindex">Use the DEFSYSPROPERTIES to obfuscate your properties</a></br>
+<a class="indentindex">Use the DEFSYSMETHODS to obfuscate your methods</a></br>
+<a class="indentindex">IF YOU WANT You can declare local vars separately in each function with DEFLOSVARS</a></br>
+</br>
+<a href="autohotkeyfunctions.htm">Obfuscating System Functions Like SubStr() or System Variables like A_Index</a></br>
+<a class="indentindex">$DEFSYSFUNCS Command to obfuscate built-in function calls</a></br>
+<a class="indentindex">$DEFSYSVARS Command to obfuscate built-in variables in expressions</a></br>
+</br>
+<a href="sensitivestrings.htm">Use 'hidestr()' to Hide Sensitive Literal Strings in Your Script</a></br>
+<a class="indentindex">Place Dummy 'hidestr()' Functions in Your Source Autohotkey Script</a></br>
+<a class="indentindex">The Obfuscator Function Used to Encode Your Sensitive Literal Strings</a></br>
+<a class="indentindex">Put the Function to Decode the Obfuscated Strings in Your Autohotkey Script</a></br>
+<a class="indentindex">Create Your Own Versions of These Functions for Greater Security</a></br>
+<a class="indentindex">Increase Security Even More By Using the Use the 'Rewire Function' Feature of the Obfuscator</a></br>
+</br>
+<a href="obfall.htm">Obfuscate more, obfuscate all !</a></br>
+<a class="indentindex">Convert built-in variables to custom variables</a></br>
+<a class="indentindex">Convert recurring Strings to variables</a></br>
+<a class="indentindex">Convert numbers to variables</a></br>
+<a class="indentindex">Convert math operators into functions</a></br>
+<a class="indentindex">Convert commands into functions</a></br>
+</br>
+<a href="stripcomms.htm">Remove Whitespaces and Comments except specific blocks</a></br>
+<a class="indentindex">Remove all comments and whitespaces</a></br>
+<a class="indentindex">Specify some comment blocks to be preserved</a></br>
+</br>
+<a href="randomizeorder.htm">Scrambling the Order of Your Whole code</a></br>
+<a class="indentindex">Let the program scramble the order itself and keep some parts together</a></br>
+<a class="indentindex">Create a Custom Layered Scrambled Sandwich</a></br>
+</br>
+<h2>ADVANCED DYNAMIC OBFUSCATION FUNCTIONALITIES</h2>
+<a href="addtoclass.htm">Add Sections of Code to an Obfuscation Class</a></br>
+<a class="indentindex">Create a Secured Obfuscation Class</a></br>
+</br>
+<a href="rewire.htm">BREAK / REWIRE Sensitive functions</a></br>
+<a class="indentindex">DUMP to 'Rewire' Where Functions Go To</a></br>
+</br>
+<h2>ISSUES & LIMITATIONS</h2>
+<a href="knownproblems.htm">Known Issues with this Program</a></br>
+<a class="indentindex">Words in GUI Text/MsgBox in Script Are Being Replaced by Obfuscations</a></br>
+<a class="indentindex">Using Single Letter Object Names Can Cause Invalid Obfuscator Replacements</a></br>
+<a class="indentindex">The Obfuscator Creates an Object Name That is Too Big</a></br>
+<a class="indentindex">A Label Name Oddity Caused by GUI Statement Syntax</a></br>
+<a class="indentindex">A Global Variable Name Oddity Caused by GUI Statement Syntax</a></br>
+</br>
+<a href="knownlimits.htm">Known limitations</a></br>
+</br>
+<h2>MORE INFO</h2>
+<a href="standardparam.htm">Understanding the Standard Parameter Set That is Used in Many Command Comments</a></br>
+</br>
+<a href="changedefaults.htm">Changing Your Obfuscation Encoding Defaults</a></br>
+</br>
+<a href="dumpcommands.htm">Dump Commands</a></br>
+</br>
+<a href="allcommandcomments.htm">List of All Obfuscator Command Comments for Autohotkey Scripts</a></br>
+
+<!-- <a href="knownlimits.htm">How Dynamic Obfuscator could be improved</a> -->
+</div>
+
+</div>
+
+<div id="rightcol" style="width:200px;float:left">
+<div class="container"></div>
+<iframe style="border-width:0px;float:left" src="iFrames/promote.htm" width="100%" height="300px" scrolling="no"></iframe>
+<br/><br/><br/>
+<iframe style="border-width:0px;" src="iFrames/donate_digidon.htm" height="400px" scrolling="no"></iframe>
+
+</div>
+
+</div>
+
+</body>
+</html>

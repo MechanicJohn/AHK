@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Obfuscating Sensitive Strings in Your Autohotkey Scripts</title>
+<meta name="Description" content="This program allows you to obfuscate sensitive strings in your Autohotkey scripts by surrounding them with hidestr()">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>Obfuscating Sensitive Strings in Your Autohotkey Scripts</h1>
+<div>
+This program allows you to obfuscate any sensitive strings in your Autohotkey scripts by surrounding them with the <code>hidestr()</code> function. 
+</div>
+
+<h2><a href="" name="placedummyhidestr"></a>Place Dummy hidestr Functions in Your Source Autohotkey Script</h2>
+<div>
+To set up your program to obfuscate literal strings, place a dummy function like this somewhere in your source code:
+
+<pre><code>hidestr(thisstr)
+<br>{
+<br>return thisstr
+<br>}</code></pre>
+
+
+This dummy function will just return the parameter it was sent. This allows you to fully test your program before you obfuscate it. 
+</div>
+
+<h2><a href="" name="placedecodefct"></a>Place the decode Function(s) to Decode the Obfuscated Strings in Your Autohotkey Script</h2>
+<div>The function to decode obfuscated literal strings must be copied to the Autohotkey script files you're looking to obfuscate. Copy the <code>decode_hidestr()</code> function from the <span class="highlight">OBFhidestr.ahk</span> file in the <span class="highlight">dynamicobfusctor.ahk</span> project into your Ahk project.
+
+<br><br>This function is included in the Obfuscator source code so you can easily copy it to your projects, but it is never actually called by the Obfuscator.
+
+<br><br>You should never call the <code>decode_hidestr()</code> function directly in your source code, only use the <code>hidestr()</code> function directly.
+</div>
+
+<h2><a href="" name="placehidestrcalls"></a>Surround your sensitive strings with hidestr function(s)</h2>
+<div>You can surround sensitive literal strings with <code>hidestr()</code> any place you use them like in variable assignments, in function calls, in statement parameters, and in expressions. You can do stuff like this:
+
+<code><pre>var1:= hidestr("some sensitive string") 
+<br>somefunc(hidestr("some sensitive string"), parameter2)</code></pre>
+</div>
+
+<h2>At Obfuscation time some changes will happen</h2>
+<div>
+At obfuscation time, any literal string found passed as a parameter to <code>hidestr()</code> will be replaced by an obfuscated literal string. The call to the <code>hidestr()</code> function will then be replaced with a call to the <code>decode_hidestr()</code> function which will then itself be obfuscated.
+</div>
+
+<h2><a href="" name="tweakhidestrfct"></a>Create Your Own Version(s) of These Functions for Greater Security</h2>
+<div>It is <b>highly recommended that you make these functions your own</b> by creating your own version(s) of the <code>encode_hidestr()</code> and <code>decode_hidestr()</code> functions. 
+
+<h3>To test your encode decode functions</h3>
+There is a folder in this project named <b>'custom-hidestr-encoders'</b>. It also contains a few scripts that you can use as a template to design and test your own <code>encode_hidestr()</code> and <code>decode_hidestr()</code> literal string obfuscators.
+</br>The file <b><span class="highlight">READ HELP OBFhidestr.ahk</span></b> contains good explanation comments on how the functions work and can be modified !
+</div>
+
+<h3>To modify the current encode/decode functions</h3>
+The function used by the Obfuscator to convert a literal string into a obfuscated literal string is named <code>encode_hidestr()</code> and is located in the <span class="highlight">OBFhidestr.ahk</span> include file.
+<br>The <code>decode_hidestr()</code> function is in the <span class="highlight">OBFhidestr.ahk</span> and should be copied to your script.
+<br>This is a quite easy personalization and in fact the versions of those supplied with the Obfuscator are not the versions that I used to obfuscate my own programs.
+
+<h3>You can have multiple encode decode functions</h3>
+You can have multiple encode decode functions for multiple levels of security and speed.
+<br>The encode function must be preceded by <code>"encode_"</code> and the decode function must have the same name as the encode one preceded by <code>"decode_"</code>.
+<br>Then you should modify only 1 line in the Dynamic Obfuscator Source Code, file <span class="highlight">OBFinit.ahk</span>:
+<br>At the beginning of <code>initOBFdefaults()</code> function :
+<br>if your new hide function is called <code>hidestrB()</code>, you must have this:
+
+<pre><code>HideStrFunc_list := "hidestr,hidestrB"</pre></code>
+
+Then the encode function must be added to the <span class="highlight">OBFhidestr.ahk</span> and your decode function must be added to your script's code.
+
+
+<h2>Increase the Security of Your decode_ Function by Fragmenting the Function</h2>
+<div>The security of the <span class="highlight">decode_ functions</span> which will be found in your obfuscated code can be increased in several easy ways. The first is to break a long <span class="highlight">decode_ functions</span> into multiple small functions:
+
+<pre><code>decode_hidestr(startstr)
+{
+<br>global
+<br>;one part of the obfuscations process
+<br>return decode_hidestr_2(currentstr)
+<br>} 
+<br>decode_hidestr_2(startstr)
+<br>{
+<br>global
+<br>;another part of the obfuscations process
+<br>return decode_hidestr_3(currentstr)
+<br>}
+<br>decode_hidestr_3(startstr)
+<br>{
+<br>global
+<br>;another part of the obfuscations process
+<br>return decode_hidestr_4(currentstr)
+<br>}
+<br>decode_hidestr_4(startstr)
+<br>{
+<br>global
+<br>;another part of the obfuscations process
+<br>return currentstr
+<br>}</pre></code>
+
+When you obfuscate your program and choose to randomize the order of functions and label sections, these separate parts of the <span class="highlight">decode_ functions</span> will be scattered throughout your script. Also, if <span class="highlight">Dynamic Obfuscation</span> is being used it will not be possible for the hacker to directly search for the <code>decode_hidestr_4(startstr)</code> function definition by just selecting that term in the statement <code>return decode_hidestr_4(currentstr)</code>. That's because with <span class="highlight">Dynamic Obfuscation</span> the 2 usages of that same function will look completely different!    
+</div>
+
+<h2>Increase Security Even More By Using the Use the 'Rewire Function' Feature of the Obfuscator</h2>
+<div>
+You can increase the security of your decode_ function even more by using the <a href="rewire.htm">rewire function path</a> capability of the Obfuscator. Create a new function in your program named <span class="highlight">DECOY_decode_hidestr</span>, and then use this command comment near the beginning of your program:
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DUMP_REWIREFUNCPATH: decode_hidestr, DECOY_decode_hidestr</font></pre>
+
+Once the program has passed your security tests, use these commands to wire the decode_ function up 'straight': 
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DUMP_REWIRE_STRAIGHT: decode_hidestr</font></pre>
+
+To create even more confusion, you might use it instead on one of the fragments of your decode_ function:
+
+<pre><code>;$OBFUSCATOR: $DUMP_REWIREFUNCPATH: decode_hidestr_2, DECOY_decode_hidestr_2
+;[...]
+;$OBFUSCATOR: $DUMP_REWIRE_STRAIGHT: decode_hidestr_2</pre></code>
+ 
+</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

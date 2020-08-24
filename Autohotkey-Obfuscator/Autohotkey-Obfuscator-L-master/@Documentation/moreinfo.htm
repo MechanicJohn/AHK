@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Autohotkey Script Obfuscator is Free and Open Source</title>
+<meta name="Description" content="Obfuscate Your Autohotkey scripts with this free and open source application written in Autohotkey. Output example: k%k#k#fkfkffk#f%@f@%#fkkff@kffkfkf%#f()">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>More on dynamic obfuscation</h1>
+
+<h2><a name="whatis"></a>What Is Dynamic Object Name Obfuscation</h2>
+<div>
+I use this term to refer to an obfuscated object name that is dynamically constructed out of object name fragments at run time and these fragments are themselves obfuscated. This utilizes the dynamic variable name creation feature of Autohotkey and the Obfuscator can start out with a function call that looks this: 'catnap()' and translate it into looking something like this:
+<br><br>k%k#k#fkfkffffk#f@f@%ff%k#ffffkfk#fkkff@kfffkfkf%#f%fkf@kfkfffkff@%k%f@kfk#fffffffkk#fkk#kffk%kfffff()
+
+<br><br>That is actual code lifted from my program <a href="http://speedy-orange-pc-shortcuts.com">Speedy Orange PC Shortcuts</a>! Download and load in Resource Hacker to see all the obfuscated code! But how does that work? The value of each variable name between each pair of %'s above will be looked up at run time and inserted into the function name it is building. All the dynamic references will finally all be resolved and a function name without %'s will be produced and then that function will be called.
+</div>
+
+<h2><a name="noisyobf"></a>This Program Creates Noisy Over-information Obfuscation Instead of Clean Room Obfuscation</h2>
+<div>
+Instead of the 'clean room' object name approach taken by other Obfuscators, this Obfuscator creates object name over-information and strives to make that over-information all noise. This Obfuscator automatically employs the dynamic variable name creation features of Autohotkey to create dynamic object name obfuscation of functions and all other objects that will end up looking like this:
+
+<br><br>k%k#k#fkfkffffk#f@f@%ff%k#ffffkfk#fkkff@kfffkfkf%#f%fkf@kfkfffkff@%k%f@kfk#fffffffkk#fkk#kffk%kfffff()
+</div>
+
+<h2><a name="reducedset"></a>Object Names Are Made Out of a Reduced Character Set to Increase Noise</h2>
+<div>The program is currently set to create obfuscated variable, function, and label names out of just 4 characters, 'fk#@'. I reasoned that if I could reduce the character palette that obfuscated strings are made out of, then they begin to look like nothing but 'noise'. The reason I used the 4 characters I did is that I did tests to determine which ones are the hardest to look at in obfuscated code, and I came up with those. I believe the reason I ended up with the f and the k is that they create more visual interference than other letters because they have more points. For instance, the f has a point at the very top of the letter, 2 more points on the cross, and 2 on the bottom, for a total of 5 points.<br>
+
+<br>Only a very small section of the code of this program controls the creation of all obfuscation object names so just change that code section if you want names made out of a different character set.
+</div>
+
+<h2><a name="multipleobf"></a>An Entire Palette of Dynamic Object Name Obfuscations for Each Object</h2>
+<div>This program has the ability to create more than one dynamic obfuscation string for the same object. Say for instance you have a function in your program called 'dogbark()', that is called at 20 different places in your source code. After obfuscation, those 20 different calls can look completely different because you can have an entire random obfuscation palette for each object and security fragments are added randomly to the object encoding as well. The upshot of this is that it would be very difficult for someone to find just one place where the function 'dogbark()' is called, let alone all 20.
+<br>
+</div>
+
+<h2><a name="hardtofind"></a>Security Fragments Make Everything Hard To Find!</h2>
+<div>
+These security fragments also break up the 'profile' of objects making it extremely difficult to search for and find all the places they are used in your Autohotkey script. The hacker will have great trouble finding all the places a function is called in a script, or even all the usages of a parameter within the same function it is used in. In the following statement, the 5 usages of param1 in the function can come out all looking completely different:
+
+<br><br>myfunc(param1)
+<br>{
+<br>global
+<br>
+<br>param1:=param1 + param1
+<br>return param1
+<br>}
+  
+<br><br>This methodology extends the general obfuscation idea of making strings in the program hard to find to making everything in the program hard to find!
+</div>
+
+<h2><a name="explainmultiple"></a>Attempt at Explaining Multiple Dynamic Obfuscations in a Simple Way</h2>
+<div> 
+The code below will be used to simulate how my Obfuscator implements multiple dynamic obfuscation. Lets assume for this exercise that the original function was named 'dogrun' and 'catnap' is already the obfuscated name.
+
+<br><br>catnap()
+<br>{
+<br>return
+<br>}
+<br>null_1=
+<br>null_2=
+<br>a=c%null_1%at
+<br>b=na%null_2%p
+<br>c:=a
+<br>d:=b
+<br>;all 4 statements below call catnap()!
+<br>%a%%b%() 
+<br>%a%n%null_2%ap() 
+<br>%null_1%ca%null_2%t%b%%null_1%() 
+<br>%c%%d%() 
+
+<br><br>The first thing to understand about the code above is that the function definition cannot have %'s in it so none are there (Autohotkey rule). But the thing is that if I search the program for the string 'catnap' I will only find the function definition and the comment (which would be stripped out on compiling). None of the 4 places where the function is called can be found by searching for 'catnap'! Not only that but I have also broken up the 'profile' of the assignment statements for a and b so that you can't even find those by searching for a substring of the function name like 'cat'. I mix null variable fragments and replacement fragments in with the actual variable fragments so that you can't tell the difference between them and you would be forced to resolve everything by hand. Slowing the hacker down like wading knee deep in molasses.  
+
+
+<br><br>Because of the way this system works, it can be nearly impossible to find the place in the code where functions or label sections are actually called. A function might be called 20 times in the source code but all the calls look different and none of them look like the original function definition. Any attempt to search for where the function is actually called will result in 'false' matches where it matches a subpart of something else.
+
+<br><br>More random things are done to the encoding of object calls including the insertion of security replacement fragments and security null fragments which help to break up the 'profile' of object names making things hard to find in the source code. These security fragments can also be used to break whole sections of your most sensitive code until muster is passed.
+</div>
+
+
+</div>
+
+<div id="rightcol" style="width:200px;float:left">
+<iframe style="border-width:0px;" src="iFrames/donate_digidon.htm" height="400px" scrolling="no">
+</iframe>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<iframe style="border-width:0px;" src="iFrames/donate_digidon.htm" height="400px" scrolling="no"/>
+</iframe>
+</div>
+
+</div>
+
+</body>
+</html>

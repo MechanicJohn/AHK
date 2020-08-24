@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>For Autohotkey Dynamic Object Name Obfuscation, Use the DUMP Commands</title>
+<meta name="Description" content="The obfuscator DUMP commands will drop scrambled and secured assignment statements into your Autohotkey script that will 'wire up' the Dynamic Obfuscation.">
+
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>BREAK / REWIRE Sensitive functions</h1>
+<div></div>
+
+<h2><a name="dumprewirefunc"></a>DUMP to 'Rewire' Where Functions Go To</h2>
+<div>
+For greater security, you can <span class="highlight">'rewire'</span> your most sensitive functions to go to an alternate <span class="highlight">'decoy' function</span>. You use these 2 commands and you can use them as much as you want in your code. As soon as your program executes one of these, all following calls to the original function will be affected. 
+
+<br><br>All following calls to <span class="highlight">'originalname'</span> will go to decoyname
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DUMP_REWIREFUNCPATH: originalname, decoyname</font></pre>
+
+This will make them start going back to the <span class="highlight">'originalname'</span>
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $DUMP_REWIRE_STRAIGHT: originalname</font></pre>
+
+The exact same function call in the exact same place in your code will go to the original function or the <span class="highlight">decoy function</span> depending on which version of the rewire was run before it. To create a <span class="highlight">rewire function</span>, add a function to your code by the name of <span class="highlight">'decoyname'</span> that has the same number of parameters as the <span class="highlight">'originalname'</span>. This function should not be called whatsoever in the <span class="highlight">unobfuscated version</span>  of your program, only the obfuscator will use it. No other work is necessary to create a <span class="highlight">rewire function</span> except to use the 2 commands above.
+
+<br><br>You can use these commands during your program startup or 'in-line' in your code to test for security violations in the main executable sections of your program. Just as soon as the <span class="highlight">REWIREFUNCPATH</span> is used, all following calls to <span class="highlight">'originalname'</span> will be transferred to <span class="highlight">'decoyname'</span>. 
+
+
+<pre><code>;program start up, start broken!
+<br>;$OBFUSCATOR: $DUMP_REWIREFUNCPATH: originalname, decoyname
+<br>;somewhere within your startup section do this
+<br>if (securityPASSED) {
+<br>;$OBFUSCATOR: $DUMP_REWIRE_STRAIGHT: originalname
+<br>}
+
+<br><br>;inline test done during the main execution of the program
+<br>if (securityFAILED) {
+<br>;$OBFUSCATOR: $DUMP_REWIREFUNCPATH: originalname, decoyname
+<br>}</code></pre>
+
+</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>

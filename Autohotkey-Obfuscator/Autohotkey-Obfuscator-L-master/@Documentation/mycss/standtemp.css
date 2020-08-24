@@ -1,0 +1,97 @@
+body { 
+margin-left:30px;
+line-height: 1.5em;
+}
+/* #wrapcols { width:72em; } */
+#wrapcols { width:100%; }
+
+#mainconts { width:70%; float:left; margin-bottom:4em; word-wrap: break-word; display: inline-block; }
+#rightcol { width:30%; float:right; }
+
+#mainconts h1 { margin-top:0.7em; margin-bottom:0.5em; color:#cd853f; font-size:1.70em;}
+#mainconts h2 { margin-top:1.5em;margin-bottom:0.1em;font-size:1.40em; text-decoration: underline; color:#006666;}
+#mainconts h3 { margin-top:1em;margin-bottom:0.1em;font-size:1.25em; color:#009999;}
+#mainconts h4 { margin-top:1em;margin-bottom:0.1em;font-size:1.1em;font-style: italic; color:#009999;}
+/* font-style: italic;  */
+/* pre, span { display: inline; } */
+
+pre {
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	line-height: 1.5em;
+	font-size: 0.8em;
+	padding: 1em;
+	margin: .5em 0;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.highlight {
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	color: #000000;
+	background: #f5f2f0;
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.supportwrapper td { padding-left:10px; }
+
+.supportobfform { }
+.supportobfhead1  { padding:4px 8px 20px 8px; font-size:1.1em; font-weight:normal; background-color:#ddd; border:2px #777 solid; border-bottom:0px white solid; }
+.supportobfhead2  { padding:4px 8px 8px 8px; font-size:1em; font-weight:normal; background-color:#ddd; border:2px #777 solid; border-bottom:0px white solid; }
+
+.logotd { width:547px; }
+.headerspacer { padding-left:2em; }
+.authorinfo { font-size:1em; width:32em; line-height: 1.2em;}
+.toplinks { font-size:1.2em; text-align: center; }
+.toplinks a { border-right:7px #fff solid; border-left:7px #fff solid; border-bottom:0px #fff solid; }
+.toplinks .selnav { background-color:#eee; border:2px #777 solid; border-bottom:0 #fff solid; }
+.titlelink:hover { color:blue; }
+
+.indexwrap { line-height:1.8em;margin-left:1.5em; }
+/* .indexwrap a { display:block;padding-top:0.5em; } */
+.indexwrap a.indentindex { margin-left:1.5em; padding-top:0.20em; }
+.indexwrap a.dbindentindex { margin-left:3em; padding-top:0.20em; }
+
+.indexwrapdoc { line-height:1.1em;margin-left:1.5em; }
+/* .indexwrap a { display:block;padding-top:0.5em; } */
+.indexwrapdoc a.indentindex { margin-left:1.5em; padding-top:0.20em; }
+.indexwrapdoc a.dbindentindex { margin-left:3em; padding-top:0.20em; }
+
+
+h2.toplevel { background-color:#ddd; padding:6px 0px 2px 4px;color:#070; border:1px #090 dashed; border-bottom:3px #ccc solid; width:85%; }
+
+.circular {
+	width: 60px;
+	height: 60px;
+	margin: auto;   
+	/* float: left; */
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	overflow: hidden;
+	/* background: url(http://www.hotpportunity.com/wp-content/uploads/2014/04/EFA_MainIco2.png) no-repeat; */
+	box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+	}
+.circular img {
+	width: 60px;
+	height: 60px;
+	}
+.circular:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.circular-text {
+	width: 170px;
+	text-align: center;
+	margin: auto;  
+	/* margin: 20px 10px 0px 30px; */
+	font-size:18px;
+}

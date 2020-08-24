@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Strip Comments and Whitespaces</title>
+<meta name="Description" content="This allows you to create a layered scrambled Sandwich out of the functions and label sections of your obfuscated Autohotkey program.">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="mycss/standtemp.css" type="text/css">
+<!-- ***************************** -->
+<!-- PRISM SYNTAX HIGHLIGHTER -->
+<link href="PrismJs/prism.css" rel="stylesheet" />
+<script src="PrismJs/prism.js"></script>
+<!-- EXAMPLES
+Put class in body
+<body class="language-autohotkey">
+   COMMAND IN BROWN
+<pre class="language-"><font color="brown">OBFUSCATOR</font></pre>
+;   EXAMPLE IN BLUE
+</br><pre class="language-"><font color="blue">EXAMPLE</font></pre>
+;LONG EXAMPLE IN PURPLE + CODE
+<pre><font color="purple">TEXT <code>CODE</code></font></pre>
+;   CODE
+<pre><code>CODE</code></pre>
+PRISM SYNTAX HIGHLIGHTER -->
+<!--***************************** -->
+<!--JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script src="js/myscripts.js"></script>
+<!-- CUSTOM JS resizeIframe -->
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 20 + 'px';
+  }
+</script>
+<!-- END HEAD--> 
+</head>
+<!-- ********************************************************** -->
+<!-- BODY-->
+<body class="language-autohotkey">
+<!-- HEADER IFRAME -->
+<iframe style="border-width:0px;" src="iFrames/header.htm" onload="resizeIframe(this)" width="100%" scrolling="no"/>
+</iframe>
+
+
+<div id="wrapcols">
+
+<div id="mainconts">
+
+<iframe style="border-width:0px;float:left" src="iFrames/toplinks.htm" width="100%" onload="resizeIframe(this)" scrolling="no"/>
+</iframe>
+
+<h1>Remove all comments and whitespaces except specific blocks</h1>
+
+<h2>Remove all comments and whitespaces</h2>
+<div>
+Strip comments and whitespaces is a function that you can check or uncheck on the Obfuscator interface. When obfuscating each function, the Obfuscator will remove all extra spaces in each line and remove all comments and all comments sections surrounded by <code>/*</code> and <code>*/</code>.
+</div>
+
+<h2>Specify some comment blocks to be preserved</h2>
+<div>
+You can preserve some specific comment parts by simply surrounding the portions of code where comments are to be preserved by simple Obfuscator commands:
+
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $START_COMMENT:</font></pre>
+&
+<pre class="language-"><font color="brown">;$OBFUSCATOR: $END_COMMENT:</font></pre>
+
+The Obfuscator will be able to process the standard <code>#CommentFlag</code> and <code>#EschapeChar</code>. 
+</div>
+
+</div>
+
+<div id="rightcol">
+
+</div>
+
+</div>
+
+</body>
+</html>
